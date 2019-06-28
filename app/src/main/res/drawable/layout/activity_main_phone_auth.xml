@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="18dp"
+              android:paddingRight="18dp"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:background="#FFFF"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:longClickable="true"
+                android:measureWithLargestChild="true"
+                android:orientation="horizontal"
+                android:saveEnabled="false"
+                android:textAlignment="textStart"
+                android:textDirection="locale"
+                android:layout_gravity="start"
+              tools:context="com.example.sha.agro.MainActivityPhoneAuth">
+
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="25dp"
+                    android:padding="6dp"
+                    android:src="@drawable/agro_logo"/>
+
+            <TextView
+                android:id="@+id/mobiletext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_person_green_24dp"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="@string/number"
+                    android:padding="8dp"
+                    android:textColorHint="#19AA8B"
+                    android:textSize="19dp"/>
+
+            <EditText
+                android:id="@+id/mobile_no"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/grad_bg"
+                android:hint="@string/enterno"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="15dp" />
+
+
+            <Button
+                android:id="@+id/send_verification_code"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_login_two"
+                android:clickable="true"
+                android:padding="16dp"
+                android:text="@string/sendcode"
+                android:textAllCaps="false"
+                android:textColor="#ffff"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/verificationtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_lock_green_400_24dp"
+                android:visibility="invisible"
+                android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="@string/code"
+                android:padding="8dp"
+                    android:textColorHint="#19AA8B"
+                    android:textSize="19dp"/>
+
+            <EditText
+                    android:id="@+id/verification_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/grad_bg"
+                    android:layout_marginBottom="8dp"
+                    android:inputType="textPassword"
+                    android:hint="@string/entercode"
+                    android:visibility="invisible"
+                    android:maxLines="1"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textSize="15dp"/>
+
+
+
+            <Button
+                    android:id="@+id/verify_button"
+                    style="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/background_signup"
+                    android:clickable="true"
+                    android:padding="16dp"
+                    android:text="Verify"
+                    android:visibility="invisible"
+                    android:textAllCaps="false"
+                    android:textColor="#ffff"
+                    android:textSize="18sp"/>
+
+            <TextView
+                    android:id="@+id/change_language"
+                    style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:padding="16dp"
+                    android:text="@string/changeLanguage"
+                    android:textColor="#19AA8B"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:fadingEdge="horizontal"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

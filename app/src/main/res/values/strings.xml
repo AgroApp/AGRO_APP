@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Agro</string>
+    <string name="agro">AGRO</string>
+
+
+    <string name="number">Mobile Number</string>
+    <string name="password">.......</string>
+    <string name="login">Log in</string>
+    <string name="signup">Sign up</string>
+    <string name="changeLanguage">Change Language</string>
+    <string name="rememberme">Remember me</string>
+    <string name="forgetyourpassword">Forget your Password?</string>
+    <string name="shops">Shops</string>
+    <string name="agriculturenews">Agriculture news</string>
+    <string name="hospital">Hospital</string>
+    <string name="pharmacy">Pharmacy</string>
+    <string name="research">Research centres</string>
+    <string name="bankloans">Bank loans</string>
+    <string name="helpline">Helpline</string>
+    <string name="home">Home</string>
+    <string name="items">7 items</string>
+    <string name="fertilizer">Fertilizer</string>
+    <string name="pesticide">Pesticide</string>
+    <string name="equipments">Equipments</string>
+    <string name="dailynews">Daily News</string>
+    <string name="IndianBank">Indian Bank</string>
+    <string name="CanaraBank">Canara Bank</string>
+    <string name="AxisBank">Axis Bank</string>
+    <string name="CorporateBank">Corporation Bank</string>
+    <string name="monthlyupdates">Monthly Updates</string>
+    <string name="VeterinaryHospital">Veterinary Hospital</string>
+    <string name="VeterinaryPharmacy">Veterinary Pharmacy</string>
+
+    <string name="code">Verification Code</string>
+    <string name="sendcode">Send Verification Code</string>
+    <string name="verify">Verify</string>
+    <string name="enterno">Enter Mobile Number…</string>
+    <string name="entercode">Enter Verification Code…</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
