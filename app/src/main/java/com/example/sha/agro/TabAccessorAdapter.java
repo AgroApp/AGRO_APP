@@ -65,7 +65,7 @@ public class TabAccessorAdapter extends FragmentPagerAdapter
                 return "Fertilizer";
             case 2:
 
-                return "Equipments";
+                return "Seedshop";
 
             default:
 

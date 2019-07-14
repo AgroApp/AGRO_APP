@@ -57,7 +57,7 @@ public class EquipmentsFragment extends Fragment {
         eMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
         eMainlist.setAdapter(listAdapter);
 
-          eDatabase.collection("Schemes").addSnapshotListener(new EventListener<QuerySnapshot>() {
+          eDatabase.collection("Shops/seed shops/seed shops").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
               public void onEvent( QuerySnapshot queryDocumentSnapshots,  FirebaseFirestoreException e) {
                if (e != null) {

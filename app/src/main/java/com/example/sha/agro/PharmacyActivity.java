@@ -15,7 +15,7 @@ public class PharmacyActivity extends AppCompatActivity {
 
     private ViewPager pharViewPager;
     private TabLayout pharTabLayout;
-    private AgriNewsTAA pharTabAccessorAdapter;
+    private PharmacyTAA pharTabAccessorAdapter;
 
 
     @Override
@@ -25,7 +25,7 @@ public class PharmacyActivity extends AppCompatActivity {
 
 
         pharViewPager =(ViewPager) findViewById(R.id.main_tabs_pager_p);
-        pharTabAccessorAdapter = new AgriNewsTAA(getSupportFragmentManager());
+        pharTabAccessorAdapter = new PharmacyTAA(getSupportFragmentManager());
         pharViewPager.setAdapter(pharTabAccessorAdapter);
 
         pharTabLayout = (TabLayout) findViewById(R.id.main_tabs_p);

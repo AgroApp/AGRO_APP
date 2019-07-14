@@ -55,7 +55,7 @@ public class PesticideFragment extends Fragment {
         pMainlist.setAdapter(pesticideAdaptor);
 
 
-        pDatabase.collection("Schemes").addSnapshotListener(new EventListener<QuerySnapshot>(){
+        pDatabase.collection("Shops/pesticide shop/pesticide shop").addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

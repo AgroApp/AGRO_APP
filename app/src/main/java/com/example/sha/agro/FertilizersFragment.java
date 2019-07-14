@@ -67,7 +67,7 @@ public class FertilizersFragment extends Fragment {
 
 
 
-        mDatabase.collection("Schemes").addSnapshotListener(new EventListener<QuerySnapshot>(){
+        mDatabase.collection("Shops/Fertilizer/Fertilizer").addSnapshotListener(new EventListener<QuerySnapshot>(){
         @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
             if (e != null) {
