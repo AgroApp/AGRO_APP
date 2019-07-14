@@ -124,12 +124,12 @@ public class Main2Activity extends AppCompatActivity
         int id=item.getItemId();
         switch (id){
             case R.id.profile:
-                Intent profile = new Intent(this, Main2Activity.class);
+                Intent profile = new Intent(this, profile.class);
                 startActivity(profile);
                 break;
 
             case R.id.set:
-                Intent settings = new Intent(this, Main2Activity.class);
+                Intent settings = new Intent(this, profile.class);
                 startActivity(settings);
                 break;
 
