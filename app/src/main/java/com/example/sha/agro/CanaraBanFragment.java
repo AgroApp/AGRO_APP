@@ -3,9 +3,24 @@ package com.example.sha.agro;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Nullable;
 
 
 /**
@@ -13,6 +28,12 @@ import android.view.ViewGroup;
  */
 public class CanaraBanFragment extends Fragment {
 
+    private static final String TAG = "canarabank";
+    private FirebaseFirestore canDatabase = FirebaseFirestore.getInstance();
+    private RecyclerView canMainlist;
+    private View canara;
+    private CanarabankAdaptor canarabankAdaptor;
+    private List<CanarabankView> canarabankViewList;
 
     public CanaraBanFragment() {
         // Required empty public constructor
@@ -23,7 +44,40 @@ public class CanaraBanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_canara_ban, container, false);
+        canara= inflater.inflate(R.layout.fragment_canara_ban, container, false);
+
+        canarabankViewList = new ArrayList<>();
+        canarabankAdaptor = new CanarabankAdaptor(canarabankViewList);
+        canMainlist = canara.findViewById(R.id.canara_recycler);
+        canMainlist.setHasFixedSize(true);
+        canMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
+        canMainlist.setAdapter(canarabankAdaptor);
+
+
+
+        canDatabase.collection("Canara Bank").addSnapshotListener(new EventListener<QuerySnapshot>(){
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.d(TAG, "Error : " + e.getMessage());
+                }
+
+
+                for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()) {
+                    if (doc.getType() == DocumentChange.Type.ADDED) {
+
+                        CanarabankView name = doc.getDocument().toObject(CanarabankView.class);
+                        canarabankViewList.add(name);
+
+                        canarabankAdaptor.notifyDataSetChanged();
+                    }
+                }
+
+            }
+        });
+
+
+        return canara;
     }
 
 }

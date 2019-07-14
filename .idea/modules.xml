@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AGRO.iml" filepath="$PROJECT_DIR$/AGRO.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AgroApp_git.iml" filepath="$PROJECT_DIR$/AgroApp_git.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AGRO_APP-master.iml" filepath="$PROJECT_DIR$/AGRO_APP-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
