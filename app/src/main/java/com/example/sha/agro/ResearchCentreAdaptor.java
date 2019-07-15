@@ -26,10 +26,10 @@ public class ResearchCentreAdaptor extends RecyclerView.Adapter<ResearchCentreAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.aName.setText("Shop Name : "+researchCentreViewList.get(position).getName());
-        holder.aMobile.setText("Mobile no : "+researchCentreViewList.get(position).getMobile());
-        holder.aLocation.setText("Location : "+researchCentreViewList.get(position).getLocation());
-        holder.aAddress.setText("Address : "+researchCentreViewList.get(position).getAddress());
+        holder.aName.setText(researchCentreViewList.get(position).getName());
+        holder.aMobile.setText(researchCentreViewList.get(position).getMobile());
+        holder.aLocation.setText(researchCentreViewList.get(position).getLocation());
+        holder.aAddress.setText(researchCentreViewList.get(position).getAddress());
     }
 
     @Override

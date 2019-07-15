@@ -25,11 +25,11 @@ public class CanarabankAdaptor extends RecyclerView.Adapter<CanarabankAdaptor.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.aScheme.setText("Scheme  : "+canarabankViewList.get(position).getScheme());
-        holder.aPurpose.setText("Purpose : "+canarabankViewList.get(position).getPurpose());
-        holder.aEligibility.setText("Eligibility : "+canarabankViewList.get(position).getEligibility());
-        holder.aMargin.setText("Margin : "+canarabankViewList.get(position).getMargin());
-        holder.aSecurity.setText("Security : "+canarabankViewList.get(position).getSecurity());
+        holder.aScheme.setText(canarabankViewList.get(position).getScheme());
+        holder.aPurpose.setText(canarabankViewList.get(position).getPurpose());
+        holder.aEligibility.setText(canarabankViewList.get(position).getEligibility());
+        holder.aMargin.setText(canarabankViewList.get(position).getMargin());
+        holder.aSecurity.setText(canarabankViewList.get(position).getSecurity());
     }
 
     @Override

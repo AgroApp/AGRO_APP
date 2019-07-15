@@ -27,10 +27,10 @@ public FertilizerAdaptor(List<FertilizersView> fertilizersViewList){
 
     @Override
     public void onBindViewHolder(@NonNull FertilizerAdaptor.ViewHolder holder, int position) {
-        holder.aName.setText("Shop Name : "+fertilizersViewList.get(position).getName());
-        holder.aMobile.setText("Mobile no : "+fertilizersViewList.get(position).getMobile());
-        holder.aLocation.setText("Location : "+fertilizersViewList.get(position).getLocation());
-        holder.aAddress.setText("Address : "+fertilizersViewList.get(position).getAddress());
+        holder.aName.setText(fertilizersViewList.get(position).getName());
+        holder.aMobile.setText(fertilizersViewList.get(position).getMobile());
+        holder.aLocation.setText(fertilizersViewList.get(position).getLocation());
+        holder.aAddress.setText(fertilizersViewList.get(position).getAddress());
     }
 
     @Override

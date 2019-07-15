@@ -26,14 +26,14 @@ public class IndianbankAdaptor extends RecyclerView.Adapter<IndianbankAdaptor.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.aScheme.setText("Scheme  : "+indianbankViewList.get(position).getScheme());
-        holder.aPurpose.setText("Purpose : "+indianbankViewList.get(position).getPurpose());
-        holder.aEligibility.setText("Eligibility :"+indianbankViewList.get(position).getEligibility());
-        holder.aAmount_of_Loan.setText("Amount of Loan : "+indianbankViewList.get(position).getAmount_of_Loan());
-        holder.aMargin.setText("Margin : "+indianbankViewList.get(position).getMargin());
-        holder.aInterest_Rate.setText("Interest Rate : "+indianbankViewList.get(position).getInterest_Rate());
-        holder.aRepayment.setText("Reypayment : "+indianbankViewList.get(position).getRepayment());
-        holder.aSecurity.setText("Security : "+indianbankViewList.get(position).getSecurity());
+        holder.aScheme.setText(indianbankViewList.get(position).getScheme());
+        holder.aPurpose.setText(indianbankViewList.get(position).getPurpose());
+        holder.aEligibility.setText(indianbankViewList.get(position).getEligibility());
+        holder.aAmount_of_Loan.setText(indianbankViewList.get(position).getAmount_of_Loan());
+        holder.aMargin.setText(indianbankViewList.get(position).getMargin());
+        holder.aInterest_Rate.setText(indianbankViewList.get(position).getInterest_Rate());
+        holder.aRepayment.setText(indianbankViewList.get(position).getRepayment());
+        holder.aSecurity.setText(indianbankViewList.get(position).getSecurity());
     }
 
     @Override

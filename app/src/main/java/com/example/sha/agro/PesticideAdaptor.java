@@ -27,10 +27,10 @@ public class PesticideAdaptor extends RecyclerView.Adapter<PesticideAdaptor.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.aName.setText("Shop Name : "+pesticideViewList.get(position).getName());
-        holder.aMobile.setText("Mobile no : "+pesticideViewList.get(position).getMobile());
-        holder.aLocation.setText("Location : "+pesticideViewList.get(position).getLocation());
-        holder.aAddress.setText("Address : "+pesticideViewList.get(position).getAddress());
+        holder.aName.setText(pesticideViewList.get(position).getName());
+        holder.aMobile.setText(pesticideViewList.get(position).getMobile());
+        holder.aLocation.setText(pesticideViewList.get(position).getLocation());
+        holder.aAddress.setText(pesticideViewList.get(position).getAddress());
     }
 
     @Override

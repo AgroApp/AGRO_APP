@@ -23,6 +23,17 @@
             android:orientation="vertical">
 
             <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Scheme :"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/in_scheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,6 +42,16 @@
                 android:text="Scheme"
                 android:textColor="#000"
                 android:textSize="25sp"
+                android:textStyle="bold" />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Purpose :"
+                android:textColor="#000"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -45,6 +66,17 @@
                 android:textStyle="bold" />
 
             <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Eligibility :"
+                android:textColor="#000"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/in_eligibility"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,6 +87,17 @@
                 android:textSize="19sp"
                 android:textStyle="bold" />
             <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Amount of Loan :"
+                android:textColor="#000"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/in_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,6 +105,17 @@
                 android:layout_marginStart="5dp"
                 android:text="Amount of Loan"
                 android:textColor="#a9a9a9"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Margin :"
+                android:textColor="#000"
                 android:textSize="19sp"
                 android:textStyle="bold" />
 
@@ -77,6 +131,17 @@
                 android:textStyle="bold" />
 
             <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Repayment :"
+                android:textColor="#000"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/in_repay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,6 +152,17 @@
                 android:textSize="19sp"
                 android:textStyle="bold" />
             <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Interest Rate :"
+                android:textColor="#000"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/in_interest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,6 +170,17 @@
                 android:layout_marginStart="5dp"
                 android:text="Interest Rate"
                 android:textColor="#a9a9a9"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Security :"
+                android:textColor="#000"
                 android:textSize="19sp"
                 android:textStyle="bold" />
 

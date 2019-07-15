@@ -31,10 +31,10 @@ public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.aName.setText("Shop Name : "+equipmentsViewList.get(position).getName());
-        holder.aMobile.setText("Mobile no : "+equipmentsViewList.get(position).getMobile());
-        holder.aLocation.setText("Location : "+equipmentsViewList.get(position).getLocation());
-        holder.aAddress.setText("Address : "+equipmentsViewList.get(position).getAddress());
+        holder.aName.setText(equipmentsViewList.get(position).getName());
+        holder.aMobile.setText(equipmentsViewList.get(position).getMobile());
+        holder.aLocation.setText(equipmentsViewList.get(position).getLocation());
+        holder.aAddress.setText(equipmentsViewList.get(position).getAddress());
     }
 
 

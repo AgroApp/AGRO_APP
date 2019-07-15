@@ -27,10 +27,10 @@ public class PharmacyAdaptor extends RecyclerView.Adapter<PharmacyAdaptor.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.aName.setText("Shop Name : "+pharmacyViewList.get(position).getName());
-        holder.aMobile.setText("Mobile no : "+pharmacyViewList.get(position).getMobile());
-        holder.aLocation.setText("Location : "+pharmacyViewList.get(position).getLocation());
-        holder.aAddress.setText("Address : "+pharmacyViewList.get(position).getAddress());
+        holder.aName.setText(pharmacyViewList.get(position).getName());
+        holder.aMobile.setText(pharmacyViewList.get(position).getMobile());
+        holder.aLocation.setText(pharmacyViewList.get(position).getLocation());
+        holder.aAddress.setText(pharmacyViewList.get(position).getAddress());
     }
 
     @Override

@@ -25,10 +25,10 @@ public class VeterinaryHospitalAdaptor extends RecyclerView.Adapter<VeterinaryHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.aName.setText("Shop Name : "+veterinaryHospitalAdaptorList.get(position).getName());
-        holder.aMobile.setText("Mobile no : "+veterinaryHospitalAdaptorList.get(position).getMobile());
-        holder.aLocation.setText("Location : "+veterinaryHospitalAdaptorList.get(position).getLocation());
-        holder.aAddress.setText("Address : "+veterinaryHospitalAdaptorList.get(position).getAddress());
+        holder.aName.setText(veterinaryHospitalAdaptorList.get(position).getName());
+        holder.aMobile.setText(veterinaryHospitalAdaptorList.get(position).getMobile());
+        holder.aLocation.setText(veterinaryHospitalAdaptorList.get(position).getLocation());
+        holder.aAddress.setText(veterinaryHospitalAdaptorList.get(position).getAddress());
     }
 
     @Override
