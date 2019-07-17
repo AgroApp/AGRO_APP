@@ -1,26 +1,27 @@
 package com.example.sha.agro;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.res.TypedArrayUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.bumptech.glide.request.RequestOptions;
+
+import java.util.ResourceBundle;
 
 /**
  * Created by sha on 19-02-2019.
  */
 
-public class TabAccessorAdapter extends FragmentPagerAdapter
-{
-    public TabAccessorAdapter(FragmentManager fm)
-    {
+public class TabAccessorAdapter extends FragmentPagerAdapter {
+    public TabAccessorAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
-    public Fragment getItem(int i)
-    {
-        switch (i)
-        {
+    public Fragment getItem(int i) {
+        switch (i) {
             case 0:
                 PesticideFragment pesticideFragment = new PesticideFragment();
                 return pesticideFragment;
@@ -41,35 +42,33 @@ public class TabAccessorAdapter extends FragmentPagerAdapter
     }
 
     @Override
-    public int getCount()
-    {
+    public int getCount() {
         return 3;
     }
 
     @Nullable
     @Override
-    public CharSequence getPageTitle(int position)
-    {
+    public CharSequence getPageTitle(int position) {
 
 
+            switch (position) {
+                case 0:
+
+                    return "Pesticide";
 
 
-        switch (position)
-        {
-            case 0:
+                case 1:
 
-                return "Pesticide";
+                    return "Fertilizer";
+                case 2:
 
-            case 1:
+                    return "Seedshop";
 
-                return "Fertilizer";
-            case 2:
+                default:
 
-                return "Seedshop";
-
-            default:
-
-                return null;
+                    return null;
+            }
         }
-    }
+
+
 }

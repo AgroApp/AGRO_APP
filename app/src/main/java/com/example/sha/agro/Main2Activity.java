@@ -129,7 +129,7 @@ public class Main2Activity extends AppCompatActivity
                 break;
 
             case R.id.set:
-                Intent settings = new Intent(this, profile.class);
+                Intent settings = new Intent(this, MainActivity.class);
                 startActivity(settings);
                 break;
 

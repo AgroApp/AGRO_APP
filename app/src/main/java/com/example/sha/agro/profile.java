@@ -30,6 +30,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -52,9 +54,10 @@ import id.zelory.compressor.Compressor;
 
 public class profile extends AppCompatActivity {
 
-    private CircleImageView setupImage;
-    private Uri mainImageURI = null;
 
+    private CircleImageView setupImage;
+    private Uri mainImageURI= null;
+   private String user_name;
     private String user_id;
 
     private boolean isChanged = false;
@@ -62,7 +65,7 @@ public class profile extends AppCompatActivity {
     private EditText setupName;
     private Button setupBtn;
     private ProgressBar setupProgress;
-
+    private FirebaseUser currentUser;
     private StorageReference storageReference;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
@@ -70,7 +73,8 @@ public class profile extends AppCompatActivity {
     private Bitmap compressedImageFile;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
@@ -137,13 +141,15 @@ public class profile extends AppCompatActivity {
         {
             @Override
             public void onClick(View v) {
-              final String user_name = setupName.getText().toString();
+
+               user_name = setupName.getText().toString();
 
                 if (!TextUtils.isEmpty(user_name) && mainImageURI != null) {
 
                     setupProgress.setVisibility(View.VISIBLE);
 
-                    if (isChanged) {
+                    if (isChanged)
+                    {
 
                         user_id = firebaseAuth.getCurrentUser().getUid();
 
@@ -163,7 +169,8 @@ public class profile extends AppCompatActivity {
                         compressedImageFile.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                         byte[] thumbData = baos.toByteArray();
 
-                      //  UploadTask image_path = storageReference.child("profile_images").child(user_id + ".jpg").putBytes(thumbData);
+                        //UploadTask image_path = storageReference.putBytes(thumbData);
+
                         final StorageReference filePath= storageReference.child("Users_Profile_Picture").child(user_id+".jpg");
                         filePath.putFile(mainImageURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
 
@@ -172,43 +179,7 @@ public class profile extends AppCompatActivity {
 
                                 if (task.isSuccessful()) {
 
-                         filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            String downloadUrl = uri.toString();
-                                        }
-
-                                    });
-
-
-                                    Map<String, String> userMap = new HashMap<>();
-                                    userMap.put("name", user_name);
-                                    userMap.put("image", toString());
-
-                                    firebaseFirestore.collection("Link").document(user_id).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-
-                                            if(task.isSuccessful()){
-
-                                                Toast.makeText(profile.this, "The user Settings are updated.", Toast.LENGTH_LONG).show();
-                                                Intent mainIntent = new Intent(profile.this, Main2Activity.class);
-                                                startActivity(mainIntent);
-                                                finish();
-
-                                            } else {
-
-                                                String error = task.getException().getMessage();
-                                                Toast.makeText(profile.this, "(FIRESTORE Error) : " + error, Toast.LENGTH_LONG).show();
-
-                                            }
-
-                                            setupProgress.setVisibility(View.INVISIBLE);
-
-                                        }
-                                    });
-
-
+                                    storeFirestore(filePath,user_name);
                                 } else {
 
                                     String error = task.getException().getMessage();
@@ -224,6 +195,9 @@ public class profile extends AppCompatActivity {
                     }
 
 
+                } else {
+
+                    storeFirestore(null,user_name);
                 }
 
             }
@@ -260,10 +234,48 @@ public class profile extends AppCompatActivity {
     }
 
 
-    private void storeFirestore(@NonNull Task<UploadTask.TaskSnapshot> task, String user_name) {
+    private void storeFirestore(StorageReference filePath,final String user_name) {
 
+if(filePath == null)
+{
+    filePath =filePath;
+}
+        filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
 
+                String downloadUrl = uri.toString();
 
+                Map<String, String> userMap = new HashMap<>();
+                userMap.put("name", user_name);
+                userMap.put("image", downloadUrl);
+
+                firebaseFirestore.collection("Link").document(user_id).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if(task.isSuccessful()){
+
+                            Toast.makeText(profile.this, "The user Settings are updated.", Toast.LENGTH_LONG).show();
+                            Intent mainIntent = new Intent(profile.this, Main2Activity.class);
+                            startActivity(mainIntent);
+                            finish();
+
+                        } else {
+
+                            String error = task.getException().getMessage();
+                            Toast.makeText(profile.this, "(FIRESTORE Error) : " + error, Toast.LENGTH_LONG).show();
+
+                        }
+
+                        setupProgress.setVisibility(View.INVISIBLE);
+
+                    }
+                });
+
+            }
+
+        });
 
     }
 

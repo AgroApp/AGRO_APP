@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Main3Activity extends AppCompatActivity
 {
     private Toolbar mToolBar;
-    private FrameLayout myViewPager;
+    private ViewPager myViewPager;
     private TabLayout myTabLayout;
     private TabAccessorAdapter myTabAccessorAdapter;
     private BottomNavigationView Navigation;
@@ -31,26 +31,53 @@ public class Main3Activity extends AppCompatActivity
     private EquipmentsFragment equipmentsFragment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-
-    {
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        Navigation = findViewById(R.id.navigationbar);
+        //  Navigation = findViewById(R.id.navigationbar);
        /* mToolBar = (Toolbar) findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setTitle("agro");*/
 
-       myViewPager =(FrameLayout) findViewById(R.id.pager);
-        //myTabAccessorAdapter = new TabAccessorAdapter(getSupportFragmentManager());
-        //myViewPager.setAdapter(myTabAccessorAdapter);
+        myViewPager = (ViewPager) findViewById(R.id.main_tabs_pager);
+        myTabAccessorAdapter = new TabAccessorAdapter(getSupportFragmentManager());
+        myViewPager.setAdapter(myTabAccessorAdapter);
 
-        //myTabLayout = (TabLayout) findViewById(R.id.main_tabs);
-        //myTabLayout.setupWithViewPager(myViewPager);
+        myTabLayout = (TabLayout) findViewById(R.id.main_tabs);
+        myTabLayout.setupWithViewPager(myViewPager);
 
-        fertilizersFragment = new FertilizersFragment();
+
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        switch (id){
+            case R.id.profile:
+                Intent profile = new Intent(this, profile.class);
+                startActivity(profile);
+                break;
+
+            case R.id.set:
+                Intent settings = new Intent(this, Main2Activity.class);
+                startActivity(settings);
+                break;
+
+            case R.id.logout:
+
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                Intent logout = new Intent(this, MainActivityPhoneAuth.class);
+                startActivity(logout);
+                break;
+        }
+        return true;
+
+    }
+}
+
+     /*   fertilizersFragment = new FertilizersFragment();
         pesticideFragment = new PesticideFragment();
         equipmentsFragment = new EquipmentsFragment();
 
@@ -141,30 +168,5 @@ public class Main3Activity extends AppCompatActivity
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id=item.getItemId();
-        switch (id){
-            case R.id.profile:
-                Intent profile = new Intent(this, profile.class);
-                startActivity(profile);
-                break;
+    */
 
-            case R.id.set:
-                Intent settings = new Intent(this, Main2Activity.class);
-                startActivity(settings);
-                break;
-
-            case R.id.logout:
-
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                Intent logout = new Intent(this, MainActivityPhoneAuth.class);
-                startActivity(logout);
-                break;
-        }
-        return true;
-
-    }
-
-}

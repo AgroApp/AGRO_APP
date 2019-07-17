@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,7 +38,7 @@ public class MainActivityPhoneAuth extends AppCompatActivity
 {
 private static final String TAG = "MainActivityPhoneAuth";
 
-
+    private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
     private FirebaseUser CurrentUser;
     private EditText Mobile_Number;
@@ -61,7 +62,7 @@ private static final String TAG = "MainActivityPhoneAuth";
         setContentView(R.layout.activity_main_phone_auth);
 
         mAuth = FirebaseAuth.getInstance();
-
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Verificationtext = (TextView) findViewById(R.id.verificationtext);
         MobileNo = (TextView) findViewById(R.id.mobiletext);
         Mobile_Number = (EditText) findViewById(R.id.mobile_no);
@@ -286,7 +287,7 @@ private static final String TAG = "MainActivityPhoneAuth";
         int id=item.getItemId();
         switch (id){
             case R.id.profile:
-                Intent profile = new Intent(this, Main2Activity.class);
+                Intent profile = new Intent(this, profile.class);
                 startActivity(profile);
                 break;
 
