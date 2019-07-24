@@ -25,10 +25,10 @@ public class Main3Activity extends AppCompatActivity
     private TabLayout myTabLayout;
     private TabAccessorAdapter myTabAccessorAdapter;
     private BottomNavigationView Navigation;
-
     private FertilizersFragment fertilizersFragment;
     private PesticideFragment pesticideFragment;
     private EquipmentsFragment equipmentsFragment;
+    public String lang= "eng";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +40,21 @@ public class Main3Activity extends AppCompatActivity
        /* mToolBar = (Toolbar) findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setTitle("agro");*/
+        Bundle bundle = getIntent().getExtras();
+        lang = bundle.getString("lang");
+
+       //Bundle arguments = new Bundle();
+        bundle.putSerializable("lang",lang);
 
         myViewPager = (ViewPager) findViewById(R.id.main_tabs_pager);
-        myTabAccessorAdapter = new TabAccessorAdapter(getSupportFragmentManager());
+        myTabAccessorAdapter = new TabAccessorAdapter(getSupportFragmentManager(), bundle);
         myViewPager.setAdapter(myTabAccessorAdapter);
 
         myTabLayout = (TabLayout) findViewById(R.id.main_tabs);
         myTabLayout.setupWithViewPager(myViewPager);
 
+       //// Bundle  = getIntent().getExtras();
+       // lang = bundle.getString("lang");
 
     }
     @Override

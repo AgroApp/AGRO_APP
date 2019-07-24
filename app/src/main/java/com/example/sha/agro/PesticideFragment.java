@@ -34,11 +34,19 @@ public class PesticideFragment extends Fragment {
     private View pesticide;
     private PesticideAdaptor pesticideAdaptor;
     private List<PesticideView> pesticideViewList;
+    private Bundle bundle;
+    private String lang= "eng";
 
     public PesticideFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate (Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        bundle = getArguments();
+        lang = (String) bundle.getSerializable("lang");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +63,7 @@ public class PesticideFragment extends Fragment {
         pMainlist.setAdapter(pesticideAdaptor);
 
 
-        pDatabase.collection("Shops/pesticide shop/pesticide shop").addSnapshotListener(new EventListener<QuerySnapshot>(){
+        pDatabase.collection("Fertilizer").whereEqualTo("lang",lang).addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

@@ -1,6 +1,8 @@
 package com.example.sha.agro;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -18,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Main2Activity extends AppCompatActivity
 {
     private DatabaseReference mDatabase;
+    private String lang= "eng";
 
     private FirebaseAuth mAuth;
 
@@ -36,7 +39,13 @@ public class Main2Activity extends AppCompatActivity
         setSingleEvent(Maingrid);
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            lang = bundle.getString("lang");
+        }
+
     }
+
 
     public void onStart(){
         super.onStart();
@@ -66,6 +75,7 @@ public class Main2Activity extends AppCompatActivity
                     if(finalI ==0)
                     {
                        Intent intent = new Intent(Main2Activity.this,Main3Activity.class);
+                       intent.putExtra("lang",lang);
                        startActivity(intent);
                     }
 

@@ -42,14 +42,19 @@ public class FertilizersFragment extends Fragment {
     private View fertilizers;
     private FertilizerAdaptor fertilizerAdaptor;
     private List<FertilizersView> fertilizerViewList;
-
-
+    private Bundle bundle;
+    private String lang= "eng";
 
     public FertilizersFragment() {
         // Required empty public constructor
 
     }
-
+    @Override
+    public void onCreate (Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        bundle = getArguments();
+        lang = (String) bundle.getSerializable("lang");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,7 +72,7 @@ public class FertilizersFragment extends Fragment {
 
 
 
-        mDatabase.collection("Shops/Fertilizer/Fertilizer").addSnapshotListener(new EventListener<QuerySnapshot>(){
+        mDatabase.collection("Fertilizer").whereEqualTo("lang",lang).addSnapshotListener(new EventListener<QuerySnapshot>(){
         @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
             if (e != null) {

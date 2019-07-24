@@ -20,7 +20,8 @@
     <string name="home">Home</string>
     <string name="items">7 items</string>
     <string name="fertilizer">Fertilizer</string>
-    <string name="pesticide">Pesticide</string>
+    <string name="pesticide_eng">Pesticide</string>
+    <string name="pesticide_tam"> பூச்சிக்கொல்லிகள்</string>
     <string name="equipments">Equipments</string>
     <string name="dailynews">Daily News</string>
     <string name="IndianBank">Indian Bank</string>

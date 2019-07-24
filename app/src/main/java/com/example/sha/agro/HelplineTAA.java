@@ -3,12 +3,13 @@ package com.example.sha.agro;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 /**
  * Created by sha on 09-03-2019.
  */
 
-public class HelplineTAA extends TabAccessorAdapter {
+public class HelplineTAA extends FragmentPagerAdapter {
 
     public HelplineTAA(FragmentManager fm)
     {

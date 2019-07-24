@@ -51,7 +51,7 @@ private static final String TAG = "MainActivityPhoneAuth";
     private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
     private ProgressDialog loadingBar;
-
+    private String lang= "eng";
 
 
     @Override
@@ -187,12 +187,15 @@ private static final String TAG = "MainActivityPhoneAuth";
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (i == 0) {
+                            lang = "tam";
                             setLocale("ta");
                             recreate();
                         } else if (i == 1) {
+                            lang = "eng";
                             setLocale("en");
                             recreate();
                         } else
+                            lang = "eng";
                             setLocale("en");
 
                         dialogInterface.dismiss();
@@ -234,13 +237,13 @@ private static final String TAG = "MainActivityPhoneAuth";
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
-        editor.putString("My_Lang", lang);
+        editor.putString("my_lang", lang);
         editor.apply();
     }
 
     public void loadLocale() {
         SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
-        String language = prefs.getString("My_Lang", "");
+        String language = prefs.getString("my_lang", "");
         setLocale(language);
     }
 
@@ -272,6 +275,7 @@ private static final String TAG = "MainActivityPhoneAuth";
         {
 
             Intent loginIntent = new Intent(this, Main2Activity.class);
+            loginIntent.putExtra("lang",lang);
             startActivity(loginIntent);
         }
 
