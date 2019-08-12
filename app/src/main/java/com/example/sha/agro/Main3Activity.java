@@ -20,14 +20,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Main3Activity extends AppCompatActivity
 {
+
     private Toolbar mToolBar;
     private ViewPager myViewPager;
     private TabLayout myTabLayout;
     private TabAccessorAdapter myTabAccessorAdapter;
-    private BottomNavigationView Navigation;
-    private FertilizersFragment fertilizersFragment;
-    private PesticideFragment pesticideFragment;
-    private EquipmentsFragment equipmentsFragment;
+
     public String lang= "eng";
 
     @Override

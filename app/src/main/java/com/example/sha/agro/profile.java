@@ -212,7 +212,7 @@ public class profile extends AppCompatActivity {
 
                     if (ContextCompat.checkSelfPermission(profile.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
-                        Toast.makeText(profile.this, "Permission Denied", Toast.LENGTH_LONG).show();
+                   //     Toast.makeText(profile.this, "Permission Denied", Toast.LENGTH_LONG).show();
                         ActivityCompat.requestPermissions(profile.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
 
                     } else {

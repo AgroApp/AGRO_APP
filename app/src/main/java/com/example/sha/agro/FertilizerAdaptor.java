@@ -23,6 +23,8 @@ public FertilizerAdaptor(List<FertilizersView> fertilizersViewList){
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_list, parent, false);
         return new ViewHolder(view);
+
+
     }
 
     @Override

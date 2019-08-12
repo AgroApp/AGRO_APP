@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Agro</string>
+    <string name="app_name">AGRO</string>
     <string name="agro">AGRO</string>
 
 
@@ -20,8 +20,8 @@
     <string name="home">Home</string>
     <string name="items">7 items</string>
     <string name="fertilizer">Fertilizer</string>
-    <string name="pesticide_eng">Pesticide</string>
-    <string name="pesticide_tam"> பூச்சிக்கொல்லிகள்</string>
+    <string name="pesticide">Pesticide</string>
+
     <string name="equipments">Equipments</string>
     <string name="dailynews">Daily News</string>
     <string name="IndianBank">Indian Bank</string>
@@ -34,15 +34,11 @@
 
     <string name="code">Verification Code</string>
     <string name="sendcode">Send Verification Code</string>
-    <string name="verify">Verify</string>
     <string name="enterno">Enter Mobile Number…</string>
     <string name="entercode">Enter Verification Code…</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="bottom_manu_fertilizer">Fertilizer</string>
-    <string name="bottom_menu_pesticide">Pesticide</string>
-    <string name="bottom_menu_equipments">Equipments</string>
+
     <string name="name">Name</string>
     <string name="mobile">Mobile</string>
     <string name="location">Location</string>
@@ -51,5 +47,9 @@
     <string name="your_name">Your name..</string>
     <string name="save">Save</string>
     <string name="Eligibility">Eligibility :</string>
-    <string name="pestiside">Pesticide</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="verify">Verify</string>
+
 </resources>

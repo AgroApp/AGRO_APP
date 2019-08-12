@@ -86,7 +86,8 @@
                 android:text="@string/sendcode"
                 android:textAllCaps="false"
                 android:textColor="#ffff"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/verificationtext"
@@ -128,7 +129,7 @@
                     android:background="@drawable/background_signup"
                     android:clickable="true"
                     android:padding="16dp"
-                    android:text="Verify"
+                    android:text="@string/verify"
                     android:visibility="invisible"
                     android:textAllCaps="false"
                     android:textColor="#ffff"
@@ -145,7 +146,8 @@
                     android:text="@string/changeLanguage"
                     android:textColor="#19AA8B"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:fadingEdge="horizontal"/>
+                    android:fadingEdge="horizontal"
+                android:focusable="true" />
 
 
         </LinearLayout>

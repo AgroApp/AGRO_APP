@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -36,9 +38,14 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivityPhoneAuth extends AppCompatActivity
 {
-private static final String TAG = "MainActivityPhoneAuth";
+    private static final String TAG = "MainActivityPhoneAuth";
+    private static final String LOCALE_KEY = "localekey";
+    private static final String TAMIL_LOCALE = "ta";
+    private static final String ENGLISH_LOCALE = "en";
+    private static final String LOCALE_PREF_KEY = "localePref";
+    private Locale locale;
 
-    private FirebaseAnalytics mFirebaseAnalytics;
+    //  private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
     private FirebaseUser CurrentUser;
     private EditText Mobile_Number;
@@ -62,7 +69,7 @@ private static final String TAG = "MainActivityPhoneAuth";
         setContentView(R.layout.activity_main_phone_auth);
 
         mAuth = FirebaseAuth.getInstance();
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+    //    mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Verificationtext = (TextView) findViewById(R.id.verificationtext);
         MobileNo = (TextView) findViewById(R.id.mobiletext);
         Mobile_Number = (EditText) findViewById(R.id.mobile_no);
@@ -137,6 +144,7 @@ private static final String TAG = "MainActivityPhoneAuth";
             {
                 loadingBar.dismiss();
                 Toast.makeText(MainActivityPhoneAuth.this,"Invalid Phone Number, Please enter correct phone number with your country code...",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivityPhoneAuth.this,"Or please check your internet connection",Toast.LENGTH_LONG).show();
 
                 Send_Verification_Code.setVisibility(View.VISIBLE);
                 Mobile_Number.setVisibility(View.VISIBLE);
@@ -169,10 +177,10 @@ private static final String TAG = "MainActivityPhoneAuth";
 
         };
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(getResources().getString(R.string.app_name));
+      //  ActionBar actionBar = getSupportActionBar();
+      //  actionBar.setTitle(getResources().getString(R.string.app_name));
 
-        ChangeLang = (TextView) findViewById(R.id.change_language);
+
         ChangeLang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -180,7 +188,7 @@ private static final String TAG = "MainActivityPhoneAuth";
             }
 
             private void showChangeLanguageDialog() {
-                final String[] listItems = {"தமிழ்", "English"};
+                final String[] listItems = {"தமிழ்","English"};
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivityPhoneAuth.this);
                 mBuilder.setTitle("Choose Language...");
                 mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
@@ -190,10 +198,12 @@ private static final String TAG = "MainActivityPhoneAuth";
                             lang = "tam";
                             setLocale("ta");
                             recreate();
+
                         } else if (i == 1) {
                             lang = "eng";
                             setLocale("en");
                             recreate();
+
                         } else
                             lang = "eng";
                             setLocale("en");
@@ -207,6 +217,14 @@ private static final String TAG = "MainActivityPhoneAuth";
             }
         });
 
+
+
+        SharedPreferences sp = getSharedPreferences(LOCALE_PREF_KEY, MODE_PRIVATE);
+
+
+
+      
+
     }
         private void signInWithPhoneAuthCredential (PhoneAuthCredential credential)
         {
@@ -216,7 +234,7 @@ private static final String TAG = "MainActivityPhoneAuth";
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 loadingBar.dismiss();
-                                Toast.makeText(MainActivityPhoneAuth.this, "Congratulations, you're logged in successfully...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivityPhoneAuth.this, "Welcome to AGRO, you're logged in successfully...", Toast.LENGTH_SHORT).show();
                                 SendUserToMainActivity();
 
                             } else {
@@ -237,13 +255,13 @@ private static final String TAG = "MainActivityPhoneAuth";
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
-        editor.putString("my_lang", lang);
+        editor.putString("My_Lang", lang);
         editor.apply();
     }
 
     public void loadLocale() {
         SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
-        String language = prefs.getString("my_lang", "");
+        String language = prefs.getString("My_Lang", " ");
         setLocale(language);
     }
 
@@ -266,7 +284,6 @@ private static final String TAG = "MainActivityPhoneAuth";
 
     private void updateUI(FirebaseUser currentUser)
     {
-
 
     }
 
@@ -295,23 +312,49 @@ private static final String TAG = "MainActivityPhoneAuth";
                 startActivity(profile);
                 break;
 
-            case R.id.set:
-                Intent settings = new Intent(this, Main2Activity.class);
-                startActivity(settings);
+            case R.id.lang:
+
+                Resources resources = getResources();
+                SharedPreferences sharedPreferences = getSharedPreferences("localePref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                if(sharedPreferences.getString(LOCALE_KEY, ENGLISH_LOCALE).equals(TAMIL_LOCALE)){
+                    locale = new Locale(ENGLISH_LOCALE);
+                    editor.putString(LOCALE_KEY, ENGLISH_LOCALE);
+                } else {
+                    locale = new Locale(TAMIL_LOCALE);
+                    editor.putString(LOCALE_KEY, TAMIL_LOCALE);
+                }
+                editor.apply();
+
+                Configuration configuration = resources.getConfiguration();
+                configuration.setLocale(locale);
+                getBaseContext().getResources().updateConfiguration(configuration,
+                        getBaseContext().getResources().getDisplayMetrics());
+                recreate();
+
                 break;
 
-            case R.id.logout:
 
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                Intent logout = new Intent(this, MainActivityPhoneAuth.class);
-                startActivity(logout);
-                break;
         }
         return true;
 
     }
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
 
+        SharedPreferences sharedPreferences = getSharedPreferences("localePref", MODE_PRIVATE);
+
+        MenuItem item = menu.getItem(0);
+        if(sharedPreferences.getString(LOCALE_KEY, ENGLISH_LOCALE).equals(TAMIL_LOCALE)){
+            item.setTitle("English");
+        } else {
+            item.setTitle("தமிழ்");
+
+        } 
+
+        return true;
+    }
 
 
 }

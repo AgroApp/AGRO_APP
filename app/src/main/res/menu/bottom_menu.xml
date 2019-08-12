@@ -5,18 +5,18 @@
     <item
         android:id="@+id/ferti"
         android:textColor="#FFFF"
-        android:title="@string/bottom_manu_fertilizer"
+        android:title="bottom_manu_fertilizer"
         android:textSize="100dp"
         android:textStyle="bold"/>
     <item
         android:id="@+id/pesti"
-        android:title="@string/bottom_menu_pesticide"
+        android:title="bottom_menu_pesticide"
         android:textSize="100dp"
         android:textColor="#FFFF"
         android:textStyle="bold"/>
     <item
         android:id="@+id/equi"
-        android:title="@string/bottom_menu_equipments"
+        android:title="bottom_menu_equipments"
         android:textSize="100dp"
         android:textColor="#FFFF"
         android:textStyle="bold"/>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-     <string name="agro">வேளாண்</string>
+     <string name="app_name">AGRO</string>
+    <string name="agro">AGRO</string>
     <string name="number">மொபைல் எண்</string>
     <string name="password">கடவுச்சொல்</string>
     <string name="login">உள் நுழை</string>
@@ -30,29 +31,20 @@
     <string name="VeterinaryPharmacy">கால்நடை பார்மசி</string>
     <string name="code">சரிபார்ப்புக் குறியீடு</string>
     <string name="sendcode">சரிபார்ப்பு கோட் அனுப்பு</string>
-    <string name="verify">சரிபார்க்கவும்</string>
     <string name="enterno">மொபைல் எண்ணை உள்ளிடவும் ...</string>
     <string name="entercode">சரிபார்ப்பு கோட் எண்ணை உள்ளிடவும் ....</string>
-
+    <string name="name">பெயர்</string>
+    <string name="mobile">மொபைல்</string>
+    <string name="location">இருப்பிடம்</string>
+    <string name="address">முகவரி</string>
+    <string name="setting">அமைப்பை</string>
+    <string name="your_name">உங்கள் பெயர் ..</string>
+    <string name="save">சேமி</string>
+    <string name="Eligibility">தகுதி :</string>
+    <string name="title_activity_maps">வரைபடம்</string>
+    <string name="profile">சுயவிவரங்கள்</string>
+    <string name="logout">வெளியேறு</string>
+    <string name="verify">சரிபார்க்கவும்</string>
 
 </resources>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
