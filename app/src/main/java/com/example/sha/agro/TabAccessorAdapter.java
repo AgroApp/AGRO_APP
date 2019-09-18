@@ -21,11 +21,11 @@ import java.util.ResourceBundle;
 public class TabAccessorAdapter extends FragmentPagerAdapter implements Serializable {
 
 
-    private Bundle lang;
+    private Bundle My_Lang;
 
-    public TabAccessorAdapter(FragmentManager fm,Bundle lang) {
+    public TabAccessorAdapter(FragmentManager fm,Bundle My_Lang) {
         super(fm);
-        this.lang = lang;
+        this.My_Lang = My_Lang;
     }
 
     @Override
@@ -33,17 +33,17 @@ public class TabAccessorAdapter extends FragmentPagerAdapter implements Serializ
         switch (i) {
             case 0:
                 PesticideFragment pesticideFragment = new PesticideFragment();
-                pesticideFragment.setArguments(lang);
+                pesticideFragment.setArguments(My_Lang);
                 return pesticideFragment;
 
             case 1:
                 FertilizersFragment fertilizersFragment = new FertilizersFragment();
-                fertilizersFragment.setArguments(lang);
+                fertilizersFragment.setArguments(My_Lang);
                 return fertilizersFragment;
 
             case 2:
                 EquipmentsFragment equipmentsFragment = new EquipmentsFragment();
-
+                equipmentsFragment.setArguments(My_Lang);
                 return equipmentsFragment;
 
             default:
@@ -65,16 +65,18 @@ public class TabAccessorAdapter extends FragmentPagerAdapter implements Serializ
 
             switch (position) {
                 case 0:
-
-                    return  "pesticide";
+                   // String peststring =  Resources.getSystem().getString(R.string.pesticide);
+                    return   "pesticide";
 
 
                 case 1:
-                    return "fertilizer";
-                    //return Resources.getSystem().getString(R.string.fertilizer);
+                   // String ferstring =  Resources.getSystem().getString(R.string.fertilizer);
+                    return   "fertilizer";
+
                 case 2:
-                    return "seed shop";
-                    //return Resources.getSystem().getString(R.string.equipments);
+                    //String seestring =  Resources.getSystem().getString(R.string.seedshop);
+                    return   "Seed shop";
+
 
                 default:
 

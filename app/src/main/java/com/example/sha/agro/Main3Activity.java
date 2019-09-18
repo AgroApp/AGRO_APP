@@ -1,6 +1,9 @@
 package com.example.sha.agro;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,6 +20,8 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Locale;
 
 public class Main3Activity extends AppCompatActivity
 {
@@ -51,10 +56,18 @@ public class Main3Activity extends AppCompatActivity
         myTabLayout = (TabLayout) findViewById(R.id.main_tabs);
         myTabLayout.setupWithViewPager(myViewPager);
 
-       //// Bundle  = getIntent().getExtras();
-       // lang = bundle.getString("lang");
+
+
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mymenu,menu);
+        return true;
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id=item.getItemId();
@@ -64,114 +77,19 @@ public class Main3Activity extends AppCompatActivity
                 startActivity(profile);
                 break;
 
-            case R.id.set:
-                Intent settings = new Intent(this, Main2Activity.class);
-                startActivity(settings);
-                break;
+
 
             case R.id.logout:
 
                 FirebaseAuth.getInstance().signOut();
                 finish();
-                Intent logout = new Intent(this, MainActivityPhoneAuth.class);
+                Intent logout = new Intent(this, MainActivity.class);
                 startActivity(logout);
                 break;
         }
         return true;
 
     }
+
 }
-
-     /*   fertilizersFragment = new FertilizersFragment();
-        pesticideFragment = new PesticideFragment();
-        equipmentsFragment = new EquipmentsFragment();
-
-        initializeFragment();
-
-        Navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.pager);
-
-                switch (item.getItemId()) {
-
-                    case R.id.ferti:
-
-                        replaceFragment(fertilizersFragment, currentFragment);
-                        return true;
-
-                    case R.id.pesti:
-
-                        replaceFragment(pesticideFragment, currentFragment);
-                        return true;
-
-                    case R.id.equi:
-
-                        replaceFragment(equipmentsFragment, currentFragment);
-                        return true;
-
-                    default:
-                        return false;
-
-
-                }
-
-            }
-
-
-        });
-    }
-
-
-
-    private void initializeFragment(){
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-
-        fragmentTransaction.add(R.id.pager, fertilizersFragment);
-        fragmentTransaction.add(R.id.pager, pesticideFragment);
-        fragmentTransaction.add(R.id.pager, equipmentsFragment);
-
-        fragmentTransaction.hide(equipmentsFragment);
-        fragmentTransaction.hide(pesticideFragment);
-
-        fragmentTransaction.commit();
-
-    }
-    private void replaceFragment(Fragment fragment, Fragment currentFragment){
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        if(fragment == fertilizersFragment){
-
-            fragmentTransaction.hide(pesticideFragment);
-            fragmentTransaction.hide(equipmentsFragment);
-
-        }
-
-        if(fragment == pesticideFragment){
-
-            fragmentTransaction.hide(fertilizersFragment);
-            fragmentTransaction.hide(equipmentsFragment);
-
-        }
-
-        if(fragment == equipmentsFragment){
-
-            fragmentTransaction.hide(fertilizersFragment);
-            fragmentTransaction.hide(pesticideFragment);
-
-        }
-        fragmentTransaction.show(fragment);
-        fragmentTransaction.commit();
-
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mymenu,menu);
-        return true;
-
-    }
-
-    */
 

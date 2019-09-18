@@ -1,6 +1,9 @@
 package com.example.sha.agro;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -10,8 +13,11 @@ import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Locale;
+
 public class HospitalsActivity extends AppCompatActivity
 {
+
     private ViewPager HospViewPager;
     private TabLayout HospTabLayout;
     private HospitalTAA HospTabAccessorAdapter;
@@ -52,20 +58,17 @@ public class HospitalsActivity extends AppCompatActivity
         int id=item.getItemId();
         switch (id){
             case R.id.profile:
-                Intent profile = new Intent(this, Main2Activity.class);
+                Intent profile = new Intent(this, profile.class);
                 startActivity(profile);
                 break;
 
-            case R.id.set:
-                Intent settings = new Intent(this, Main2Activity.class);
-                startActivity(settings);
-                break;
+
 
             case R.id.logout:
 
                 FirebaseAuth.getInstance().signOut();
                 finish();
-                Intent logout = new Intent(this, MainActivityPhoneAuth.class);
+                Intent logout = new Intent(this, MainActivity.class);
                 startActivity(logout);
                 break;
         }

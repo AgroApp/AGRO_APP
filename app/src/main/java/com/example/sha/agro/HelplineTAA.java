@@ -28,7 +28,6 @@ public class HelplineTAA extends FragmentPagerAdapter {
                 return  helplineFragment;
 
 
-
             default:
 
                 return null;
@@ -59,10 +58,6 @@ public class HelplineTAA extends FragmentPagerAdapter {
             case 0:
 
                 return "Helpline";
-
-
-
-
 
             default:
 

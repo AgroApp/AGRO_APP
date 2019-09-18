@@ -28,9 +28,6 @@ public class AgriNewsTAA extends FragmentPagerAdapter
                 DailyNewsFragment dailyNewsFragment = new DailyNewsFragment();
                 return  dailyNewsFragment;
 
-            case 1:
-                MonthlyUpdatesFragment monthlyUpdatesFragment = new MonthlyUpdatesFragment();
-                return monthlyUpdatesFragment;
 
                 default:
 
@@ -48,7 +45,7 @@ public class AgriNewsTAA extends FragmentPagerAdapter
     @Override
     public int getCount()
     {
-        return 2;
+        return 1;
     }
 
 
@@ -62,12 +59,6 @@ public class AgriNewsTAA extends FragmentPagerAdapter
             case 0:
 
                 return "Daily News";
-
-            case 1:
-
-                return "Monthly Updates";
-
-
 
             default:
 

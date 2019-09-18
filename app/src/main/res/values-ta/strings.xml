@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AGRO</string>
+    <string name="agro">AGRO</string>
+    <string name="number">மொபைல் எண்</string>
+    <string name="password">கடவுச்சொல்</string>
+    <string name="login">உள் நுழை</string>
+    <string name="signup">பதிவு செய்க</string>
+    <string name="changeLanguage">மொழியை மாற்று</string>
+    <string name="rememberme">நினைவில் வை</string>
+    <string name="forgetyourpassword">உங்கள் கடவுச்சொல்லை மறந்து விட்டீர்களா?</string>
+    <string name="shops">கடைகள்</string>
+    <string name="agriculturenews">விவசாய செய்தி</string>
+    <string name="hospital">மருத்துவமனை</string>
+    <string name="pharmacy">மருந்தகம்</string>
+    <string name="research">ஆராய்ச்சி மையங்கள்</string>
+    <string name="bankloans">வங்கி கடன்கள்</string>
+    <string name="helpline">ஹெல்ப்லைன்</string>
+    <string name="home">ஹூம்</string>
+    <string name="items">7 பொருட்களை</string>
+    <string name="fertilizer">உரங்கள்</string>
+    <string name="pesticide"> பூச்சிக்கொல்லிகள்</string>
+    <string name="equipments">உபகரணங்கள்</string>
+    <string name="dailynews">தினசரி செய்திகள்</string>
+    <string name="monthlyupdates">மாதாந்திர மேம்படுத்தல்கள்</string>
+    <string name="IndianBank">இந்திய வங்கி</string>
+    <string name="CanaraBank">கனரா வங்கி</string>
+    <string name="AxisBank">ஆக்ஸிஸ் வங்கி</string>
+    <string name="CorporateBank">கார்ப்பரேஷன் வங்கி</string>
+    <string name="VeterinaryHospital">கால்நடை மருத்துவமனை</string>
+    <string name="VeterinaryPharmacy">கால்நடை பார்மசி</string>
+    <string name="code">சரிபார்ப்புக் குறியீடு</string>
+    <string name="sendcode">சரிபார்ப்பு கோட் அனுப்பு</string>
+    <string name="enterno">மொபைல் எண்ணை உள்ளிடவும் ...</string>
+    <string name="entercode">சரிபார்ப்பு கோட் எண்ணை உள்ளிடவும் ....</string>
+    <string name="name">பெயர்</string>
+    <string name="mobile">மொபைல்</string>
+    <string name="location">இருப்பிடம்</string>
+    <string name="address">முகவரி</string>
+    <string name="setting">அமைப்பை</string>
+    <string name="your_name">உங்கள் பெயர் ..</string>
+    <string name="save">சேமி</string>
+    <string name="Eligibility">தகுதி :</string>
+    <string name="title_activity_maps">வரைபடம்</string>
+    <string name="profile">சுயவிவரங்கள்</string>
+    <string name="logout">வெளியேறு</string>
+    <string name="verify">சரிபார்க்கவும்</string>
+    <string name="toast_no_number">முதலில் உங்கள் தொலைபேசி எண்ணை உள்ளிடவும்...</string>
+    <string name="toast_pls_wait">உங்கள் தொலைபேசியை நாங்கள் அங்கீகரிக்கும் போது காத்திருங்கள்...</string>
+    <string name="toast_enter_verification">முதலில் சரிபார்ப்புக் குறியீட்டை எழுதவும்...</string>
+    <string name="toast_verify_number">சரிபார்ப்புக் குறியீட்டை நாங்கள் சரிபார்க்கும்போது காத்திருங்கள்...</string>
+    <string name="text_english">English</string>
+    <string name="text_tamil">தமிழ்</string>
+    <string name="kissan_helpline"><![CDATA[கிசான் அழைப்பு மையம் :: 1800-180-1551 (எந்தவொரு லேண்ட்லைன் அல்லது மொபைலிலிருந்தும்) / 1551 (பிஎஸ்என்எல் லேண்ட்லைனில் இருந்து) வேளாண்மை மற்றும் ஒத்துழைப்புத் துறை (டிஏசி), வேளாண் அமைச்சகம், அரசு. விவசாய சமூகத்திற்கு விரிவாக்க சேவைகளை வழங்குவதற்காக கிசான் அழைப்பு மையங்கள் ஜனவரி 21, 2004 அன்று நாடு தழுவிய அளவில் தொடங்கப்பட்டன.]]></string>
+    <string name="phone_verification">தொலைபேசி சரிபார்ப்பு</string>
+    <string name="verification_code">சரிபார்ப்புக் குறியீடு</string>
+    <string name="invalid_number">தவறான தொலைபேசி எண், தயவுசெய்து உங்கள் நாட்டின் குறியீட்டைக் கொண்டு சரியான தொலைபேசி எண்ணை உள்ளிடவும்...அல்லது உங்கள் இணைய இணைப்பை சரிபார்க்கவும்...</string>
+    //<string name="check_internet">அல்லது உங்கள் இணைய இணைப்பை சரிபார்க்கவும்</string>
+    <string name="code_sent">குறியீடு அனுப்பப்பட்டுள்ளது, தயவுசெய்து சரிபார்க்கவும் ...</string>
+    <string name="choose_lang">மொழியைத் தேர்வுசெய்க ...</string>
+    <string name="log_successful">AGRO க்கு வருக ...</string>
+    <string name="error">பிழை :</string>
+    <string name="permission_denied">அனுமதி மறுக்கப்பட்டது</string>
+    <string name="seedshop">விதை கடை</string>
+    <string name="user_setting_update">பயனர் அமைப்புகள் புதுப்பிக்கப்பட்டன.</string>
+
+</resources>
+

@@ -48,20 +48,17 @@ public class ResearchCentreActivity extends AppCompatActivity {
         int id=item.getItemId();
         switch (id){
             case R.id.profile:
-                Intent profile = new Intent(this, Main2Activity.class);
+                Intent profile = new Intent(this, profile.class);
                 startActivity(profile);
                 break;
 
-            case R.id.set:
-                Intent settings = new Intent(this, Main2Activity.class);
-                startActivity(settings);
-                break;
+
 
             case R.id.logout:
 
                 FirebaseAuth.getInstance().signOut();
                 finish();
-                Intent logout = new Intent(this, MainActivityPhoneAuth.class);
+                Intent logout = new Intent(this, MainActivity.class);
                 startActivity(logout);
                 break;
         }

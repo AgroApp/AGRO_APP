@@ -10,6 +10,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -212,12 +214,12 @@ public class profile extends AppCompatActivity {
 
                     if (ContextCompat.checkSelfPermission(profile.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
-                   //     Toast.makeText(profile.this, "Permission Denied", Toast.LENGTH_LONG).show();
+
                         ActivityCompat.requestPermissions(profile.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-
-                    } else {
-
                         BringImagePicker();
+                    } else {
+                        Toast.makeText(profile.this,  getString(R.string.permission_denied), Toast.LENGTH_LONG).show();
+
 
                     }
 
@@ -256,7 +258,7 @@ if(filePath == null)
 
                         if(task.isSuccessful()){
 
-                            Toast.makeText(profile.this, "The user Settings are updated.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(profile.this, getString(R.string.user_setting_update), Toast.LENGTH_LONG).show();
                             Intent mainIntent = new Intent(profile.this, Main2Activity.class);
                             startActivity(mainIntent);
                             finish();
@@ -310,5 +312,27 @@ if(filePath == null)
         }
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mymenu,menu);
+        return true;
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        switch (id){
+
+            case R.id.logout:
+
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                Intent logout = new Intent(this, MainActivity.class);
+                startActivity(logout);
+                break;
+        }
+        return true;
+
+    }
 }

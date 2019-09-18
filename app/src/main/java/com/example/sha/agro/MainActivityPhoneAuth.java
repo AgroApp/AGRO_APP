@@ -36,6 +36,9 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+import static com.example.sha.agro.LocaleManager.setNewLocale;
+import static com.example.sha.agro.R.string.toast_enter_verification;
+
 public class MainActivityPhoneAuth extends AppCompatActivity
 {
     private static final String TAG = "MainActivityPhoneAuth";
@@ -43,7 +46,7 @@ public class MainActivityPhoneAuth extends AppCompatActivity
     private static final String TAMIL_LOCALE = "ta";
     private static final String ENGLISH_LOCALE = "en";
     private static final String LOCALE_PREF_KEY = "localePref";
-    private Locale locale;
+
 
     //  private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
@@ -86,11 +89,11 @@ public class MainActivityPhoneAuth extends AppCompatActivity
                 String MobileNumber = Mobile_Number.getText().toString();
 
                 if (TextUtils.isEmpty(MobileNumber)) {
-                    Toast.makeText(MainActivityPhoneAuth.this, "Please enter your phone number first...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivityPhoneAuth.this, getString(R.string.toast_no_number), Toast.LENGTH_SHORT).show();
                 } else
                     {
-                        loadingBar.setTitle("Phone Verification");
-                        loadingBar.setMessage("please wait, while we are authenticating your phone...");
+                        loadingBar.setTitle(getString(R.string.phone_verification));
+                        loadingBar.setMessage(getString(R.string.toast_pls_wait));
                         loadingBar.setCanceledOnTouchOutside(false);
                         loadingBar.show();
 
@@ -116,12 +119,12 @@ public class MainActivityPhoneAuth extends AppCompatActivity
 
                 if(TextUtils.isEmpty(verificationCode))
                 {
-                    Toast.makeText(MainActivityPhoneAuth.this,"Please write verification code first...",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivityPhoneAuth.this,getString(toast_enter_verification),Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    loadingBar.setTitle("Verification Code");
-                    loadingBar.setMessage("please wait, while we are verifying verification code...");
+                    loadingBar.setTitle(getString(R.string.verification_code));
+                    loadingBar.setMessage(getString(R.string.toast_verify_number));
                     loadingBar.setCanceledOnTouchOutside(false);
                     loadingBar.show();
 
@@ -143,8 +146,8 @@ public class MainActivityPhoneAuth extends AppCompatActivity
             public void onVerificationFailed(FirebaseException e)
             {
                 loadingBar.dismiss();
-                Toast.makeText(MainActivityPhoneAuth.this,"Invalid Phone Number, Please enter correct phone number with your country code...",Toast.LENGTH_SHORT).show();
-                Toast.makeText(MainActivityPhoneAuth.this,"Or please check your internet connection",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivityPhoneAuth.this,getString(R.string.invalid_number),Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivityPhoneAuth.this,getString(R.string.check_internet),Toast.LENGTH_LONG).show();
 
                 Send_Verification_Code.setVisibility(View.VISIBLE);
                 Mobile_Number.setVisibility(View.VISIBLE);
@@ -164,7 +167,7 @@ public class MainActivityPhoneAuth extends AppCompatActivity
 
                 loadingBar.dismiss();
 
-                Toast.makeText(MainActivityPhoneAuth.this,"Code has been sent, please check and verify...",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivityPhoneAuth.this,getString(R.string.code_sent),Toast.LENGTH_SHORT).show();
 
                 Send_Verification_Code.setVisibility(View.INVISIBLE);
                 Mobile_Number.setVisibility(View.INVISIBLE);
@@ -219,14 +222,11 @@ public class MainActivityPhoneAuth extends AppCompatActivity
 
 
 
-        SharedPreferences sp = getSharedPreferences(LOCALE_PREF_KEY, MODE_PRIVATE);
-
-
-
-      
-
     }
-        private void signInWithPhoneAuthCredential (PhoneAuthCredential credential)
+
+
+
+    private void signInWithPhoneAuthCredential (PhoneAuthCredential credential)
         {
             mAuth.signInWithCredential(credential)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -261,7 +261,7 @@ public class MainActivityPhoneAuth extends AppCompatActivity
 
     public void loadLocale() {
         SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
-        String language = prefs.getString("My_Lang", " ");
+        String language = prefs.getString("My_Lang", "");
         setLocale(language);
     }
 
@@ -276,23 +276,24 @@ public class MainActivityPhoneAuth extends AppCompatActivity
         if (CurrentUser != null)
         {
             FirebaseUser currentUser = mAuth.getCurrentUser();
-            updateUI(currentUser);
 
             SendUserToMainActivity();
         }
     }
 
-    private void updateUI(FirebaseUser currentUser)
-    {
 
-    }
 
     private void SendUserToMainActivity()
 
         {
-
+            Bundle bundle = new Bundle();
+            bundle.putString("lang",lang);
+            bundle.putString("LOCALE_KEY",LOCALE_KEY);
+            bundle.putString("TAMIL_LOCALE",TAMIL_LOCALE);
+            bundle.putString("ENGLISH_LOCALE",ENGLISH_LOCALE);
+            bundle.putString("LOCALE_PREF_KEY",LOCALE_PREF_KEY);
             Intent loginIntent = new Intent(this, Main2Activity.class);
-            loginIntent.putExtra("lang",lang);
+            loginIntent.putExtras(bundle);
             startActivity(loginIntent);
         }
 
@@ -312,49 +313,16 @@ public class MainActivityPhoneAuth extends AppCompatActivity
                 startActivity(profile);
                 break;
 
-            case R.id.lang:
 
-                Resources resources = getResources();
-                SharedPreferences sharedPreferences = getSharedPreferences("localePref", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                if(sharedPreferences.getString(LOCALE_KEY, ENGLISH_LOCALE).equals(TAMIL_LOCALE)){
-                    locale = new Locale(ENGLISH_LOCALE);
-                    editor.putString(LOCALE_KEY, ENGLISH_LOCALE);
-                } else {
-                    locale = new Locale(TAMIL_LOCALE);
-                    editor.putString(LOCALE_KEY, TAMIL_LOCALE);
-                }
-                editor.apply();
-
-                Configuration configuration = resources.getConfiguration();
-                configuration.setLocale(locale);
-                getBaseContext().getResources().updateConfiguration(configuration,
-                        getBaseContext().getResources().getDisplayMetrics());
-                recreate();
-
-                break;
 
 
         }
         return true;
-
-    }
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-
-        SharedPreferences sharedPreferences = getSharedPreferences("localePref", MODE_PRIVATE);
-
-        MenuItem item = menu.getItem(0);
-        if(sharedPreferences.getString(LOCALE_KEY, ENGLISH_LOCALE).equals(TAMIL_LOCALE)){
-            item.setTitle("English");
-        } else {
-            item.setTitle("தமிழ்");
-
-        } 
-
-        return true;
     }
 
-
+    private void setNewLocale(AppCompatActivity mContext, @LocaleManager.LocaleDef String language) {
+        LocaleManager.setNewLocale(this, language);
+        Intent intent = mContext.getIntent();
+        startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+    }
 }

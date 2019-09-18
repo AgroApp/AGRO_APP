@@ -35,7 +35,7 @@ public class PesticideFragment extends Fragment {
     private PesticideAdaptor pesticideAdaptor;
     private List<PesticideView> pesticideViewList;
     private Bundle bundle;
-    private String lang= "eng";
+    private String My_Lang= "en";
 
     public PesticideFragment() {
         // Required empty public constructor
@@ -45,7 +45,7 @@ public class PesticideFragment extends Fragment {
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bundle = getArguments();
-        lang = (String) bundle.getSerializable("lang");
+        My_Lang = (String) bundle.getSerializable("My_Lang");
     }
 
     @Override
@@ -63,7 +63,7 @@ public class PesticideFragment extends Fragment {
         pMainlist.setAdapter(pesticideAdaptor);
 
 
-        pDatabase.collection("Fertilizer").whereEqualTo("lang",lang).addSnapshotListener(new EventListener<QuerySnapshot>(){
+        pDatabase.collection("Shops/pesticide shop/pesticide shop").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

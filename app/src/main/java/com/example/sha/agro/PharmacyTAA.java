@@ -27,9 +27,7 @@ public class PharmacyTAA extends FragmentPagerAdapter {
                 PharmacyFragment pharmacyFragment = new PharmacyFragment();
                 return  pharmacyFragment;
 
-            case 1:
-                VeterinaryPharmacyFragment veterinaryPharmacyFragment = new VeterinaryPharmacyFragment();
-                return veterinaryPharmacyFragment;
+
 
             default:
 
@@ -47,7 +45,7 @@ public class PharmacyTAA extends FragmentPagerAdapter {
     @Override
     public int getCount()
     {
-        return 2;
+        return 1;
     }
 
 
@@ -62,9 +60,6 @@ public class PharmacyTAA extends FragmentPagerAdapter {
 
                 return "Pharmacy";
 
-            case 1:
-
-                return "Veterinary Pharmacy";
 
 
 

@@ -3,9 +3,13 @@ package com.example.sha.agro;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,10 +21,16 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Locale;
+
+import static com.example.sha.agro.LocaleManager.setNewLocale;
+
 public class Main2Activity extends AppCompatActivity
 {
+
+
     private DatabaseReference mDatabase;
-    private String lang= "eng";
+    private String My_Lang = "en";
 
     private FirebaseAuth mAuth;
 
@@ -30,6 +40,7 @@ public class Main2Activity extends AppCompatActivity
     protected void onCreate( Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        loadLocale();
         setContentView(R.layout.activity_main2);
 
         mAuth = FirebaseAuth.getInstance();
@@ -41,8 +52,10 @@ public class Main2Activity extends AppCompatActivity
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            lang = bundle.getString("lang");
+
+            My_Lang = bundle.getString("My_Lang");
         }
+
 
     }
 
@@ -52,7 +65,7 @@ public class Main2Activity extends AppCompatActivity
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null)
         {
-            Intent intent = new Intent(this,MainActivityPhoneAuth.class);
+            Intent intent = new Intent(Main2Activity.this,MainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -75,38 +88,44 @@ public class Main2Activity extends AppCompatActivity
                     if(finalI ==0)
                     {
                        Intent intent = new Intent(Main2Activity.this,Main3Activity.class);
-                       intent.putExtra("lang",lang);
+                       intent.putExtra("My_Lang",My_Lang);
                        startActivity(intent);
                     }
 
                     else if(finalI ==1)
                     {
                         Intent intent = new Intent(Main2Activity.this,AgriNewsActivity.class);
+                        intent.putExtra("My_Lang",My_Lang);
                         startActivity(intent);
                     }
                     else if(finalI ==2)
                     {
                         Intent intent = new Intent(Main2Activity.this,BankLoanActivity.class);
+                        intent.putExtra("My_Lang",My_Lang);
                         startActivity(intent);
                     }
                     else if(finalI ==3)
                     {
                         Intent intent = new Intent(Main2Activity.this,HospitalsActivity.class);
+                        intent.putExtra("My_Lang",My_Lang);
                         startActivity(intent);
                     }
                     else if(finalI ==4)
                     {
                         Intent intent = new Intent(Main2Activity.this,ResearchCentreActivity.class);
+                        intent.putExtra("My_Lang",My_Lang);
                         startActivity(intent);
                     }
                     else if(finalI ==5)
                     {
                         Intent intent = new Intent(Main2Activity.this,PharmacyActivity.class);
+                        intent.putExtra("My_Lang",My_Lang);
                         startActivity(intent);
                     }
                     else if(finalI ==6)
                     {
                         Intent intent = new Intent(Main2Activity.this,HelplineActivity.class);
+                        intent.putExtra("My_Lang",My_Lang);
                         startActivity(intent);
                     }
 
@@ -138,21 +157,35 @@ public class Main2Activity extends AppCompatActivity
                 startActivity(profile);
                 break;
 
-            case R.id.set:
-                Intent settings = new Intent(this, MainActivity.class);
-                startActivity(settings);
-                break;
 
             case R.id.logout:
 
                 FirebaseAuth.getInstance().signOut();
                 finish();
-                Intent logout = new Intent(this, MainActivityPhoneAuth.class);
+                Intent logout = new Intent(this, MainActivity.class);
                 startActivity(logout);
                 break;
         }
         return true;
 
+    }
+
+
+    public void loadLocale() {
+        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String language = prefs.getString(My_Lang,  Locale.getDefault().getLanguage());
+        setLocale(language);
+    }
+
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString(My_Lang, lang);
+        editor.apply();
     }
 
 }

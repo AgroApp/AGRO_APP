@@ -5,12 +5,7 @@
     <item android:title="@string/profile"
         android:id="@+id/profile">
     </item>
-    <item android:title="@string/setting"
-        android:id="@+id/set">
-    </item>
-    <item android:title="@string/changeLanguage"
-        android:id="@+id/lang">
-    </item>
+
     <item android:title="@string/logout"
         android:id="@+id/logout">
     </item>

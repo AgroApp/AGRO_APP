@@ -31,11 +31,9 @@ public class BankloanTAA extends FragmentPagerAdapter {
                 CanaraBanFragment canaraBanFragment = new CanaraBanFragment();
                 return canaraBanFragment;
 
-            case 2:
-                AxisBankFragment axisBankFragment = new AxisBankFragment();
-                return axisBankFragment;
 
-            case 3:
+
+            case 2:
                 CorporationBankFragment corporationBankFragment = new CorporationBankFragment();
                 return corporationBankFragment;
 
@@ -55,7 +53,7 @@ public class BankloanTAA extends FragmentPagerAdapter {
     @Override
     public int getCount()
     {
-        return 4;
+        return 3;
     }
 
 
@@ -74,12 +72,8 @@ public class BankloanTAA extends FragmentPagerAdapter {
 
                 return "Canara Bank";
 
+
             case 2:
-
-                return "Axis Bank";
-
-
-            case 3:
 
                 return "Corporation Bank";
 
