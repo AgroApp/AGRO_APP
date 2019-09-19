@@ -34,7 +34,8 @@ public class IndianBankFragment extends Fragment {
     private View indianbank;
     private IndianbankAdaptor indianbankAdaptor;
     private List<IndianbankView> indianbankViewList;
-
+    private String My_Lang= "ta";
+    private Bundle bundle;
 
 
     public IndianBankFragment() {
@@ -54,8 +55,10 @@ public class IndianBankFragment extends Fragment {
         inMainlist.setHasFixedSize(true);
         inMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
         inMainlist.setAdapter(indianbankAdaptor);
+        bundle = getArguments();
+        My_Lang = (String) bundle.getSerializable("My_Lang");
 
-        inDatabase.collection("Indian Bank").addSnapshotListener(new EventListener<QuerySnapshot>(){
+        inDatabase.collection("Indian Bank").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

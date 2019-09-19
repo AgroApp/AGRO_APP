@@ -34,7 +34,8 @@ public class CanaraBanFragment extends Fragment {
     private View canara;
     private CanarabankAdaptor canarabankAdaptor;
     private List<CanarabankView> canarabankViewList;
-
+    private String My_Lang= "ta";
+    private Bundle bundle;
     public CanaraBanFragment() {
         // Required empty public constructor
     }
@@ -52,10 +53,11 @@ public class CanaraBanFragment extends Fragment {
         canMainlist.setHasFixedSize(true);
         canMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
         canMainlist.setAdapter(canarabankAdaptor);
+        bundle = getArguments();
+        My_Lang = (String) bundle.getSerializable("My_Lang");
 
 
-
-        canDatabase.collection("Canara Bank").addSnapshotListener(new EventListener<QuerySnapshot>(){
+        canDatabase.collection("Canara Bank").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

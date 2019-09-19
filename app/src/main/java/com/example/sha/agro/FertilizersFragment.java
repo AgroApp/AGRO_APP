@@ -62,8 +62,8 @@ public class FertilizersFragment extends Fragment {
         // Inflate the layout for this fragment
         fertilizers = inflater.inflate(R.layout.fragment_fertilizers, container, false);
 
-        bundle = getArguments();
-        My_Lang = (String) bundle.getSerializable("My_Lang");
+       bundle = getArguments();
+       My_Lang = (String) bundle.getSerializable("My_Lang");
 
 
         fertilizerViewList = new ArrayList<>();
@@ -73,10 +73,10 @@ public class FertilizersFragment extends Fragment {
         mMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
         mMainlist.setAdapter(fertilizerAdaptor);
 
-if(My_Lang == "en") {
+if(My_Lang.equals("en")) {
 
 
-    mDatabase.collection("Fertilizer").addSnapshotListener(new EventListener<QuerySnapshot>() {
+    mDatabase.collection("Fertilizer").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>() {
         @Override
         public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
             if (e != null) {
@@ -97,9 +97,9 @@ if(My_Lang == "en") {
         }
     });
 }
-else if(My_Lang=="ta")
+else if(My_Lang.equals("ta"))
 {
-    mDatabase.collection("Shops/pesticide shop/pesticide shop").addSnapshotListener(new EventListener<QuerySnapshot>() {
+    mDatabase.collection("Shops/pesticide shop/pesticide shop").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>() {
         @Override
         public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
             if (e != null) {

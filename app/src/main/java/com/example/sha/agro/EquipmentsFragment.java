@@ -37,8 +37,8 @@ public class EquipmentsFragment extends Fragment {
     private RecyclerView eMainlist;
     private List<EquipmentsView> equipmentsViewList;
     private EquipmentsAdapter listAdapter;
-
-
+    private String My_Lang= "ta";
+    private Bundle bundle;
     public EquipmentsFragment() {
         // Required empty public constructor
     }
@@ -56,8 +56,10 @@ public class EquipmentsFragment extends Fragment {
         eMainlist.setHasFixedSize(true);
         eMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
         eMainlist.setAdapter(listAdapter);
+        bundle = getArguments();
+        My_Lang = (String) bundle.getSerializable("My_Lang");
 
-          eDatabase.collection("Shops/seed shops/seed shops").addSnapshotListener(new EventListener<QuerySnapshot>() {
+          eDatabase.collection("Shops/seed shops/seed shops").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
               public void onEvent( QuerySnapshot queryDocumentSnapshots,  FirebaseFirestoreException e) {
                if (e != null) {
