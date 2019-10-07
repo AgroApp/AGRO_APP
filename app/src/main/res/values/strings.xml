@@ -41,8 +41,8 @@
 
     <string name="name">Name</string>
     <string name="mobile">Mobile</string>
-    <string name="location">Location</string>
-    <string name="address">Address</string>
+    <string name="location">Location  :</string>
+    <string name="address">Address :</string>
     <string name="setting">Setting</string>
     <string name="your_name">Your name..</string>
     <string name="save">Save</string>
@@ -69,5 +69,16 @@
     <string name="permission_denied">Permission DENIED</string>
     <string name="seedshop">Seed shop</string>
     <string name="user_setting_update">The user Settings are updated.</string>
+    <string name="shop_owner_s_name">Shop/Owner\'s Name :</string>
+    <string name="mobile_row_list">Mobile :</string>
+
+    <string name="scheme">Scheme :</string>
+    <string name="purpose">Purpose :</string>
+    <string name="eligibility">Eligibility :</string>
+    <string name="amount_of_loan">Amount of Loan :</string>
+    <string name="margin">Margin :</string>
+    <string name="repayment">Repayment :</string>
+    <string name="interest_rate">Interest Rate :</string>
+    <string name="security">Security :</string>
 
 </resources>

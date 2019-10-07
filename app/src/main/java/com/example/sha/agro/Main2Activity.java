@@ -50,11 +50,11 @@ public class Main2Activity extends AppCompatActivity
         setSingleEvent(Maingrid);
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
+        Intent intent = getIntent();
+        My_Lang = intent.getStringExtra("My_Lang");
 
-            My_Lang = bundle.getString("My_Lang");
-        }
+           // My_Lang = bundle.getString("My_Lang");
+
 
 
     }
@@ -87,7 +87,7 @@ public class Main2Activity extends AppCompatActivity
                 {
                     if(finalI ==0)
                     {
-                       Intent intent = new Intent(Main2Activity.this,Main3Activity.class);
+                       Intent intent = new Intent(getApplicationContext(),Main3Activity.class);
                        intent.putExtra("My_Lang",My_Lang);
                        startActivity(intent);
                     }

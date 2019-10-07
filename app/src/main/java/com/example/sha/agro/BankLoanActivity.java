@@ -22,18 +22,23 @@ public class BankLoanActivity extends AppCompatActivity {
     private ViewPager banViewPager;
     private TabLayout banTabLayout;
     private BankloanTAA banTabAccessorAdapter;
-
+    public String My_Lang= "en";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank_loan);
+        Bundle bundle = getIntent().getExtras();
+        My_Lang = bundle.getString("My_Lang");
+
+        Bundle arguments = new Bundle();
+        arguments.putSerializable("My_Lang",My_Lang);
 
 
 
         banViewPager =(ViewPager) findViewById(R.id.main_tabs_pager_bl);
-        banTabAccessorAdapter = new BankloanTAA(getSupportFragmentManager());
+        banTabAccessorAdapter = new BankloanTAA(getSupportFragmentManager(), arguments);
         banViewPager.setAdapter(banTabAccessorAdapter);
 
         banTabLayout = (TabLayout) findViewById(R.id.main_tabs_bl);

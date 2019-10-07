@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="5dp"
-                android:text="Scheme :"
+                android:text="@string/scheme"
                 android:textColor="#000"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="5dp"
-                android:text="Purpose :"
+                android:text="@string/purpose"
                 android:textColor="#000"
                 android:textSize="19sp"
                 android:textStyle="bold" />
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="5dp"
-                android:text="Eligibility :"
+                android:text="@string/eligibility"
                 android:textColor="#000"
                 android:textSize="19sp"
                 android:textStyle="bold" />
@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="5dp"
-                android:text="Amount of Loan :"
+                android:text="@string/amount_of_loan"
                 android:textColor="#000"
                 android:textSize="19sp"
                 android:textStyle="bold" />
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="5dp"
-                android:text="Margin :"
+                android:text="@string/margin"
                 android:textColor="#000"
                 android:textSize="19sp"
                 android:textStyle="bold" />
@@ -136,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="5dp"
-                android:text="Repayment :"
+                android:text="@string/repayment"
                 android:textColor="#000"
                 android:textSize="19sp"
                 android:textStyle="bold" />
@@ -157,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="5dp"
-                android:text="Interest Rate :"
+                android:text="@string/interest_rate"
                 android:textColor="#000"
                 android:textSize="19sp"
                 android:textStyle="bold" />
@@ -179,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginStart="5dp"
-                android:text="Security :"
+                android:text="@string/security"
                 android:textColor="#000"
                 android:textSize="19sp"
                 android:textStyle="bold" />

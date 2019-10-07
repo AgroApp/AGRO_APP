@@ -43,7 +43,7 @@ public class FertilizersFragment extends Fragment {
     private FertilizerAdaptor fertilizerAdaptor;
     private List<FertilizersView> fertilizerViewList;
     private Bundle bundle;
-    private String My_Lang= "ta";
+    private String My_Lang= "en";
 
     public FertilizersFragment() {
         // Required empty public constructor
@@ -73,10 +73,9 @@ public class FertilizersFragment extends Fragment {
         mMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
         mMainlist.setAdapter(fertilizerAdaptor);
 
-if(My_Lang.equals("en")) {
 
 
-    mDatabase.collection("Fertilizer").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>() {
+    mDatabase.collection("Fertilizer").whereEqualTo("My_Lang","ta").addSnapshotListener(new EventListener<QuerySnapshot>() {
         @Override
         public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
             if (e != null) {
@@ -96,30 +95,7 @@ if(My_Lang.equals("en")) {
 
         }
     });
-}
-else if(My_Lang.equals("ta"))
-{
-    mDatabase.collection("Shops/pesticide shop/pesticide shop").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>() {
-        @Override
-        public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-            if (e != null) {
-                Log.d(TAG, getString(R.string.error) + e.getMessage());
-            }
 
-
-            for (DocumentChange doc : queryDocumentSnapshots.getDocumentChanges()) {
-                if (doc.getType() == DocumentChange.Type.ADDED) {
-
-                    FertilizersView name = doc.getDocument().toObject(FertilizersView.class);
-                    fertilizerViewList.add(name);
-
-                    fertilizerAdaptor.notifyDataSetChanged();
-                }
-            }
-
-        }
-    });
-}
 
         return fertilizers;
     }

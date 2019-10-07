@@ -31,7 +31,7 @@ public class Main3Activity extends AppCompatActivity
     private TabLayout myTabLayout;
     private TabAccessorAdapter myTabAccessorAdapter;
 
-    public String lang= "eng";
+    public String My_Lang= "en";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +43,14 @@ public class Main3Activity extends AppCompatActivity
        /* mToolBar = (Toolbar) findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setTitle("agro");*/
-        Bundle bundle = getIntent().getExtras();
-        lang = bundle.getString("lang");
+        Intent intent = getIntent();
+        My_Lang = intent.getStringExtra("My_Lang");
 
-       //Bundle arguments = new Bundle();
-        bundle.putSerializable("lang",lang);
+       Bundle arguments = new Bundle();
+        arguments.putSerializable("My_Lang",My_Lang);
 
         myViewPager = (ViewPager) findViewById(R.id.main_tabs_pager);
-        myTabAccessorAdapter = new TabAccessorAdapter(getSupportFragmentManager(), bundle);
+        myTabAccessorAdapter = new TabAccessorAdapter(getSupportFragmentManager(), arguments);
         myViewPager.setAdapter(myTabAccessorAdapter);
 
         myTabLayout = (TabLayout) findViewById(R.id.main_tabs);

@@ -267,10 +267,10 @@ public class MainActivity extends BaseActivity {
 
 
     private void SendUserToMainActivity() {
-        Bundle bundle = new Bundle();
-        bundle.putString("My_Lang", My_Lang);
-        Intent loginIntent = new Intent(MainActivity.this, Main2Activity.class);
-        loginIntent.putExtras(bundle);
+       // Bundle bundle = new Bundle();
+       // bundle.putString("My_Lang", My_Lang);
+        Intent loginIntent = new Intent(getApplicationContext(), Main2Activity.class);
+        loginIntent.putExtra("My_Lang", My_Lang);
         startActivity(loginIntent);
     }
 

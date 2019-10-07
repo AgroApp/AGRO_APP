@@ -36,8 +36,8 @@
     <string name="entercode">சரிபார்ப்பு கோட் எண்ணை உள்ளிடவும் ....</string>
     <string name="name">பெயர்</string>
     <string name="mobile">மொபைல்</string>
-    <string name="location">இருப்பிடம்</string>
-    <string name="address">முகவரி</string>
+    <string name="location">இருப்பிடம் :</string>
+    <string name="address">முகவரி :</string>
     <string name="setting">அமைப்பை</string>
     <string name="your_name">உங்கள் பெயர் ..</string>
     <string name="save">சேமி</string>
@@ -64,6 +64,16 @@
     <string name="permission_denied">அனுமதி மறுக்கப்பட்டது</string>
     <string name="seedshop">விதை கடை</string>
     <string name="user_setting_update">பயனர் அமைப்புகள் புதுப்பிக்கப்பட்டன.</string>
+    <string name="shop_owner_s_name">கடை/உரிமையாளரின் பெயர் :</string>
+    <string name="mobile_row_list">மொபைல் :</string>
+    <string name="scheme">திட்டம் :</string>
+    <string name="purpose">நோக்கம் :</string>
+    <string name="eligibility">தகுதி வரம்பு :</string>
+    <string name="amount_of_loan">கடன் தொகை :</string>
+    <string name="margin">வரம்பு :</string>
+    <string name="repayment">திரும்பச் செலுத்துதல் :</string>
+    <string name="interest_rate">வட்டி விகிதம் :</string>
+    <string name="security">பாதுகாப்பு :</string>
 
 </resources>
 
