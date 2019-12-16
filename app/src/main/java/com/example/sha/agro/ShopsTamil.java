@@ -1,44 +1,50 @@
 package com.example.sha.agro;
 
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.core.app.ActivityCompat;
-import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class HelplineActivity extends AppCompatActivity {
+public class ShopsTamil extends AppCompatActivity {
 
 
-    private ViewPager helpViewPager;
-    private TabLayout helpTabLayout;
-    private HelplineTAA helpTabAccessorAdapter;
+    private Toolbar mToolBar;
+    private ViewPager myViewPager;
+    private TabLayout myTabLayout;
+    private ShopsTAATamil myTabAccessorAdapter;
 
+    public String My_Lang= "en";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_helpline);
+        setContentView(R.layout.activity_shops_tamil);
 
+        Intent intent = getIntent();
+        My_Lang = intent.getStringExtra("My_Lang");
 
-        helpViewPager =(ViewPager) findViewById(R.id.main_tabs_pager_H);
-        helpTabAccessorAdapter = new HelplineTAA(getSupportFragmentManager());
-        helpViewPager.setAdapter(helpTabAccessorAdapter);
+        Bundle arguments = new Bundle();
+        arguments.putSerializable("My_Lang",My_Lang);
 
-        helpTabLayout = (TabLayout) findViewById(R.id.main_tabs_H);
-        helpTabLayout.setupWithViewPager(helpViewPager);
+        myViewPager = (ViewPager) findViewById(R.id.main_tabs_pager);
+        myTabAccessorAdapter = new ShopsTAATamil(getSupportFragmentManager());
+        myViewPager.setAdapter(myTabAccessorAdapter);
+
+        myTabLayout = (TabLayout) findViewById(R.id.main_tabs);
+        myTabLayout.setupWithViewPager(myViewPager);
+
 
 
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

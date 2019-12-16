@@ -54,7 +54,7 @@ public class HospitalFragment extends Fragment {
         hosMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
         hosMainlist.setAdapter(hospitalAdaptor);
 
-        hosDatabase.collection("hospitals/hospitals/hospital").addSnapshotListener(new EventListener<QuerySnapshot>(){
+        hosDatabase.collection("hospitals/hospitals/hospital").whereEqualTo("My_Lang","en").addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

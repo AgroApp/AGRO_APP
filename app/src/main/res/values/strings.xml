@@ -41,8 +41,8 @@
 
     <string name="name">Name</string>
     <string name="mobile">Mobile</string>
-    <string name="location">Location  :</string>
-    <string name="address">Address :</string>
+    <string name="location">Location  </string>
+    <string name="address">Address </string>
     <string name="setting">Setting</string>
     <string name="your_name">Your name..</string>
     <string name="save">Save</string>
@@ -61,7 +61,8 @@
     <string name="phone_verification">Phone Verification</string>
     <string name="verification_code">Verification Code</string>
     <string name="invalid_number">Invalid Phone Number, Please enter correct phone number with your country code...Or please check your internet connection...</string>
-   // <string name="check_internet">Or please check your internet connection</string>
+    //
+    <string name="check_internet">Or please check your internet connection</string>
     <string name="code_sent">Code has been sent, please check and verify...</string>
     <string name="choose_lang">Choose Language...</string>
     <string name="log_successful">Welcome to AGRO, you\'re logged in successfully...</string>
@@ -69,8 +70,8 @@
     <string name="permission_denied">Permission DENIED</string>
     <string name="seedshop">Seed shop</string>
     <string name="user_setting_update">The user Settings are updated.</string>
-    <string name="shop_owner_s_name">Shop/Owner\'s Name :</string>
-    <string name="mobile_row_list">Mobile :</string>
+    <string name="shop_owner_s_name">Shop/Owner\'s Name </string>
+    <string name="mobile_row_list">Mobile </string>
 
     <string name="scheme">Scheme :</string>
     <string name="purpose">Purpose :</string>
@@ -80,5 +81,11 @@
     <string name="repayment">Repayment :</string>
     <string name="interest_rate">Interest Rate :</string>
     <string name="security">Security :</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="want_to_call">Do you want to call this person!!!</string>
+    <string name="yes">yes</string>
+    <string name="no">No</string>
 
 </resources>

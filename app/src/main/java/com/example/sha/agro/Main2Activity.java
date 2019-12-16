@@ -1,11 +1,14 @@
 package com.example.sha.agro;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -13,7 +16,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,7 +36,8 @@ public class Main2Activity extends AppCompatActivity
 
     private DatabaseReference mDatabase;
     private String My_Lang = "en";
-
+    private String lang = My_Lang;
+private ImageView langchange;
     private FirebaseAuth mAuth;
 
     GridLayout Maingrid;
@@ -55,6 +61,42 @@ public class Main2Activity extends AppCompatActivity
 
            // My_Lang = bundle.getString("My_Lang");
 
+        langchange = (ImageView) findViewById(R.id.logo);
+        langchange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showChangeLanguageDialog();
+            }
+
+            private void showChangeLanguageDialog() {
+                final String[] listItems = {"தமிழ்", "English"};
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(Main2Activity.this);
+                mBuilder.setTitle(getString(R.string.choose_lang));
+                mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (i == 0) {
+
+                            setLocale("ta");
+                            recreate();
+
+                        } else if (i == 1) {
+
+                            setLocale("en");
+                            recreate();
+
+                        } else
+
+                            setLocale("en");
+
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                AlertDialog mDialog = mBuilder.create();
+                mDialog.show();
+            }
+        });
 
 
     }
@@ -74,70 +116,91 @@ public class Main2Activity extends AppCompatActivity
     public void setSingleEvent(GridLayout Maingrid) {
         int i;
 
-        for ( i=0;i<Maingrid.getChildCount();i++)
-        {
-            CardView cardView = (CardView)Maingrid.getChildAt(i);
-            final int finalI=i;
 
-            cardView.setOnClickListener(new View.OnClickListener()
-            {
+    for (i = 0; i < Maingrid.getChildCount(); i++) {
+        CardView cardView = (CardView) Maingrid.getChildAt(i);
+        final int finalI = i;
 
-                @Override
-                public void onClick(View v)
-                {
-                    if(finalI ==0)
-                    {
-                       Intent intent = new Intent(getApplicationContext(),Main3Activity.class);
-                       intent.putExtra("My_Lang",My_Lang);
-                       startActivity(intent);
-                    }
+        cardView.setOnClickListener(new View.OnClickListener() {
 
-                    else if(finalI ==1)
-                    {
-                        Intent intent = new Intent(Main2Activity.this,AgriNewsActivity.class);
-                        intent.putExtra("My_Lang",My_Lang);
+            @Override
+            public void onClick(View v) {
+                if (finalI == 0) {
+                    if(My_Lang =="en") {
+                        Intent intent = new Intent(getApplicationContext(), Main3Activity.class);
+                        intent.putExtra("My_Lang", My_Lang);
                         startActivity(intent);
                     }
-                    else if(finalI ==2)
-                    {
-                        Intent intent = new Intent(Main2Activity.this,BankLoanActivity.class);
-                        intent.putExtra("My_Lang",My_Lang);
+                    else {
+                        Intent intent = new Intent(getApplicationContext(),ShopsTamil.class);
+                        intent.putExtra("My_Lang", My_Lang);
                         startActivity(intent);
                     }
-                    else if(finalI ==3)
-                    {
-                        Intent intent = new Intent(Main2Activity.this,HospitalsActivity.class);
-                        intent.putExtra("My_Lang",My_Lang);
-                        startActivity(intent);
-                    }
-                    else if(finalI ==4)
-                    {
-                        Intent intent = new Intent(Main2Activity.this,ResearchCentreActivity.class);
-                        intent.putExtra("My_Lang",My_Lang);
-                        startActivity(intent);
-                    }
-                    else if(finalI ==5)
-                    {
-                        Intent intent = new Intent(Main2Activity.this,PharmacyActivity.class);
-                        intent.putExtra("My_Lang",My_Lang);
-                        startActivity(intent);
-                    }
-                    else if(finalI ==6)
-                    {
-                        Intent intent = new Intent(Main2Activity.this,HelplineActivity.class);
-                        intent.putExtra("My_Lang",My_Lang);
-                        startActivity(intent);
-                    }
-
-                    else
-                    {
-                        Toast.makeText(Main2Activity.this, "the cardview "+ finalI,Toast.LENGTH_SHORT).show();
-                    }
-
                 }
-            });
+                else if (finalI == 1) {
+                    if(My_Lang =="en") {
+                        Intent intent = new Intent(Main2Activity.this, AgriNewsActivity.class);
+                        intent.putExtra("My_Lang", My_Lang);
+                        startActivity(intent);
+                    }
+                     else {
+                        Toast.makeText(Main2Activity.this, "the cardview " + finalI, Toast.LENGTH_SHORT).show();
+                    }
+                } else if (finalI == 2) {
+                    if(lang =="en") {
+                        Intent intent = new Intent(Main2Activity.this, BankLoanActivity.class);
+                        intent.putExtra("My_Lang", My_Lang);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(Main2Activity.this, "the cardview " + finalI, Toast.LENGTH_SHORT).show();
+                    }
+                } else if (finalI == 3) {
+                    if(lang =="en") {
+                        Intent intent = new Intent(Main2Activity.this, HospitalsActivity.class);
+                        intent.putExtra("My_Lang", My_Lang);
+                        startActivity(intent);
+                    }
+                     else  {
+                        Toast.makeText(Main2Activity.this, "the cardview " + finalI, Toast.LENGTH_SHORT).show();
+                    }
+                } else if (finalI == 4) {
+                    if(lang =="en") {
+                        Intent intent = new Intent(Main2Activity.this, ResearchCentreActivity.class);
+                        intent.putExtra("My_Lang", My_Lang);
+                        startActivity(intent);
+                    }
+                     else{
+                        Toast.makeText(Main2Activity.this, "the cardview " + finalI, Toast.LENGTH_SHORT).show();
+                    }
+                } else if (finalI == 5) {
+                    if(lang =="en") {
+                        Intent intent = new Intent(Main2Activity.this, PharmacyActivity.class);
+                        intent.putExtra("My_Lang", My_Lang);
+                        startActivity(intent);
+                    }
+                     else if(lang == "ta"){
+                        Toast.makeText(Main2Activity.this, "the cardview " + finalI, Toast.LENGTH_SHORT).show();
+                    }
+                } else if (finalI == 6) {
+                    if(lang =="en") {
+                        Intent intent = new Intent(Main2Activity.this, HelplineActivity.class);
+                        intent.putExtra("My_Lang", My_Lang);
+                        startActivity(intent);
+                    }
+                     else {
+                        Toast.makeText(Main2Activity.this, "the cardview " + finalI, Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(Main2Activity.this, "the cardview " + finalI, Toast.LENGTH_SHORT).show();
+                }
 
-        }
+            }
+        });
+
+    }
+
+
 
     }
 

@@ -52,7 +52,7 @@ public class PharmacyFragment extends Fragment {
         pharMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
         pharMainlist.setAdapter(pharmacyAdaptor);
 
-        pharDatabase.collection("pharmacy/pharmacy/pharmacy").addSnapshotListener(new EventListener<QuerySnapshot>(){
+        pharDatabase.collection("pharmacy/pharmacy/pharmacy").whereEqualTo("My_Lang","en").addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

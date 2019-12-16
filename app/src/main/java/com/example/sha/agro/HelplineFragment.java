@@ -47,6 +47,7 @@ public class HelplineFragment extends Fragment {
         });
         return helpline;
     }
+
     private void makePhoneCall()
     {
         Intent callIntent = new Intent(Intent.ACTION_CALL);

@@ -56,7 +56,7 @@ public class CorporationBankFragment extends Fragment {
         bundle = getArguments();
         My_Lang = (String) bundle.getSerializable("My_Lang");
 
-        coDatabase.collection("Indian Bank").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>(){
+        coDatabase.collection("Indian Bank").whereEqualTo("My_Lang","en").addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

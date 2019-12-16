@@ -39,6 +39,7 @@
                 android:textColor="#FFFF" />
 
             <ImageView
+                android:id="@+id/logo"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/agro_logo"
                 android:layout_width="62dp"

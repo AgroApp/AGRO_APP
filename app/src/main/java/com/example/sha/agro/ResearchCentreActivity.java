@@ -1,8 +1,12 @@
 package com.example.sha.agro;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
+
+import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
@@ -33,9 +37,20 @@ public class ResearchCentreActivity extends AppCompatActivity {
 
 
 
-
+        AskPermission();
 
     }
+
+    private void AskPermission(){
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CALL_PHONE}, 1);
+        }
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.mymenu,menu);

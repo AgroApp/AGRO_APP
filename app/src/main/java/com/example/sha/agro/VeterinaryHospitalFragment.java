@@ -53,7 +53,7 @@ public class VeterinaryHospitalFragment extends Fragment {
         vethosMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));
         vethosMainlist.setAdapter(veterinaryHospitalAdaptor);
 
-        vethosDatabase.collection("hospitals/veterinary hospital/veterinary hospital").addSnapshotListener(new EventListener<QuerySnapshot>(){
+        vethosDatabase.collection("hospitals/veterinary hospital/veterinary hospital").whereEqualTo("My_Lang","en").addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

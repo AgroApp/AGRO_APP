@@ -57,7 +57,7 @@ public class CanaraBanFragment extends Fragment {
         My_Lang = (String) bundle.getSerializable("My_Lang");
 
 
-        canDatabase.collection("Canara Bank").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>(){
+        canDatabase.collection("Canara Bank").whereEqualTo("My_Lang","en").addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

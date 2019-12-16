@@ -63,7 +63,7 @@ public class PesticideFragment extends Fragment {
         pMainlist.setAdapter(pesticideAdaptor);
 
 
-        pDatabase.collection("Shops/pesticide shop/pesticide shop").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>(){
+        pDatabase.collection("Shops/pesticide shop/pesticide shop").whereEqualTo("My_Lang","en").addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e != null) {

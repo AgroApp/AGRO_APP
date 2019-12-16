@@ -59,7 +59,7 @@ public class EquipmentsFragment extends Fragment {
         bundle = getArguments();
         My_Lang = (String) bundle.getSerializable("My_Lang");
 
-          eDatabase.collection("Shops/seed shops/seed shops").whereEqualTo("My_Lang",My_Lang).addSnapshotListener(new EventListener<QuerySnapshot>() {
+          eDatabase.collection("Shops/seed shops/seed shops").whereEqualTo("My_Lang","en").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
               public void onEvent( QuerySnapshot queryDocumentSnapshots,  FirebaseFirestoreException e) {
                if (e != null) {
