@@ -1,7 +1,11 @@
 package com.example.sha.agro;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -36,6 +40,8 @@ import static android.content.ContentValues.TAG;
  * A simple {@link Fragment} subclass.
  */
 public class FertilizersFragment extends Fragment {
+
+    private String num = "8778155739";
     private static final String TAG = "fertilizer";
     private FirebaseFirestore mDatabase = FirebaseFirestore.getInstance();
     private RecyclerView mMainlist;
@@ -61,13 +67,46 @@ public class FertilizersFragment extends Fragment {
         super.onCreate(savedInstanceState);
         // Inflate the layout for this fragment
         fertilizers = inflater.inflate(R.layout.fragment_fertilizers, container, false);
+        final View.OnClickListener call = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                AlertDialog.Builder a_builder = new AlertDialog.Builder(getContext());
+                a_builder.setCancelable(false);
+                a_builder.setMessage(getString(R.string.want_to_call));
+                a_builder.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent callIntent = new Intent(Intent.ACTION_CALL);
+                        callIntent.setData(Uri.parse("tel:" +num));
+
+                        startActivity(callIntent);
+                    }
+                });
+
+
+                a_builder.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                });
+
+                AlertDialog alert = a_builder.create();
+                alert.setTitle("Alert !");
+                alert.show();
+
+
+
+            }
+        };
        bundle = getArguments();
        My_Lang = (String) bundle.getSerializable("My_Lang");
 
 
         fertilizerViewList = new ArrayList<>();
-        fertilizerAdaptor = new FertilizerAdaptor(fertilizerViewList);
+        fertilizerAdaptor = new FertilizerAdaptor(fertilizerViewList, call);
         mMainlist = fertilizers.findViewById(R.id.recycler);
         mMainlist.setHasFixedSize(true);
         mMainlist.setLayoutManager(new LinearLayoutManager(container.getContext()));

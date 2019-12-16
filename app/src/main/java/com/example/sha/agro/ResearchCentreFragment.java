@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  */
 public class ResearchCentreFragment extends Fragment {
 
-    private String num = "9789836485";
+    private String num = "8778155739";
     private static final String TAG = "Research centre";
     private FirebaseFirestore resDatabase = FirebaseFirestore.getInstance();
     private RecyclerView resMainlist;

@@ -7,17 +7,26 @@ public class EquipmentsView
     private String Mobile;
     private String Location;
     private String Address;
-
+    private String Image;
     public EquipmentsView() {
     }
 
-    public EquipmentsView(String name, String mobile, String location, String address) {
+    public EquipmentsView(String name, String mobile, String location, String address, String  image) {
         this.Name = name;
         this.Mobile = mobile;
         this.Location = location;
         this.Address = address;
+        this.Image = image;
     }
 
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
     public String getName() {
         return Name;
     }

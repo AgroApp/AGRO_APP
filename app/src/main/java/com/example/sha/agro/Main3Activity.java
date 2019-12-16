@@ -39,10 +39,7 @@ public class Main3Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        //  Navigation = findViewById(R.id.navigationbar);
-       /* mToolBar = (Toolbar) findViewById(R.id.main_page_toolbar);
-        setSupportActionBar(mToolBar);
-        getSupportActionBar().setTitle("agro");*/
+
         Intent intent = getIntent();
         My_Lang = intent.getStringExtra("My_Lang");
 

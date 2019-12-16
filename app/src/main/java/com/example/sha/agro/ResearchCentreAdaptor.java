@@ -53,8 +53,7 @@ public class ResearchCentreAdaptor extends RecyclerView.Adapter<ResearchCentreAd
         holder.aLocation.setText(researchCentreViewList.get(position).getLocation());
         holder.aAddress.setText(researchCentreViewList.get(position).getAddress());
         String image_url = researchCentreViewList.get(position).getImage();
-
-        holder.setBlogImage(image_url);
+        holder.setImage(image_url);
 
 
     }
@@ -83,7 +82,7 @@ public class ResearchCentreAdaptor extends RecyclerView.Adapter<ResearchCentreAd
         }
 
 
-        public void setBlogImage(String downloadUri){
+        public void setImage(String downloadUri){
 
             aImage = mView.findViewById(R.id.image);
 

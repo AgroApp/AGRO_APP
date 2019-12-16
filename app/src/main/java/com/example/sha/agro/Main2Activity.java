@@ -1,9 +1,11 @@
 package com.example.sha.agro;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 
 import android.util.Log;
 import android.view.Menu;
@@ -126,7 +129,7 @@ private ImageView langchange;
             @Override
             public void onClick(View v) {
                 if (finalI == 0) {
-                    if(My_Lang =="en") {
+                    if(lang =="en") {
                         Intent intent = new Intent(getApplicationContext(), Main3Activity.class);
                         intent.putExtra("My_Lang", My_Lang);
                         startActivity(intent);
@@ -138,7 +141,7 @@ private ImageView langchange;
                     }
                 }
                 else if (finalI == 1) {
-                    if(My_Lang =="en") {
+                    if(lang =="en") {
                         Intent intent = new Intent(Main2Activity.this, AgriNewsActivity.class);
                         intent.putExtra("My_Lang", My_Lang);
                         startActivity(intent);
@@ -200,7 +203,7 @@ private ImageView langchange;
 
     }
 
-
+        AskPermission();
 
     }
 
@@ -233,6 +236,14 @@ private ImageView langchange;
 
     }
 
+    private void AskPermission(){
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CALL_PHONE}, 1);
+        }
+    }
 
     public void loadLocale() {
         SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
