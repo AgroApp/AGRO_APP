@@ -58,6 +58,11 @@ public class BankLoanActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id=item.getItemId();
         switch (id){
+            case R.id.home:
+                Intent home = new Intent(this, Main2Activity.class);
+                startActivity(home);
+                break;
+
             case R.id.profile:
                 Intent profile = new Intent(this, profile.class);
                 startActivity(profile);
