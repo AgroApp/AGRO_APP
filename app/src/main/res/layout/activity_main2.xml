@@ -24,16 +24,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/home"
+                android:text="Weather Today"
                 android:textSize="22sp"
                 android:textColor="#FFFF"
-                android:id="@+id/Home"/>
+                android:id="@+id/weather"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:layout_below="@id/Home"
+                android:layout_below="@id/weather"
                 android:text="@string/items"
                 android:textSize="14sp"
                 android:textColor="#FFFF" />

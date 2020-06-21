@@ -113,7 +113,7 @@ public class FertilizersFragment extends Fragment {
         mMainlist.setAdapter(fertilizerAdaptor);
 
 
-if(My_Lang ="1"){
+if(My_Lang == "My_lang"){
     mDatabase.collection("Fertilizer").whereEqualTo("My_Lang","en").addSnapshotListener(new EventListener<QuerySnapshot>() {
         @Override
         public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {

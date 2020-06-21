@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +37,7 @@ import static com.example.sha.agro.LocaleManager.setNewLocale;
 public class Main2Activity extends AppCompatActivity
 {
 
-
+private TextView WeatherAct;
     private DatabaseReference mDatabase;
     private String My_Lang = "en";
     private String lang = My_Lang;
@@ -55,6 +56,16 @@ private ImageView langchange;
         mAuth = FirebaseAuth.getInstance();
 
         Maingrid =(GridLayout) findViewById(R.id.gridlayout);
+        WeatherAct = (TextView) findViewById(R.id.weather);
+
+        WeatherAct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main2Activity.this, WeatherActivity.class);
+                startActivity(intent);
+
+                            }
+        });
 
         setSingleEvent(Maingrid);
         mDatabase = FirebaseDatabase.getInstance().getReference();

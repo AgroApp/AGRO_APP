@@ -49,6 +49,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".profile" />
         <activity android:name=".Main3Activity" />
+        <activity android:name=".CityWeather" />
+        <activity android:name=".WeatherActivity" />
         <activity android:name=".AgriNewsActivity" />
         <activity android:name=".BankLoanActivity" />
         <activity android:name=".HospitalsActivity" />
